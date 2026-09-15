@@ -74,12 +74,10 @@
          choose Share → Embed, delete the <img> line, remove the <!-- and
          --> 
     <figure>
-      <img src="Scanner Week 1.png" alt="This image exhibit the population density and physical landscapes of New York City. Darker blue areas represent higher estimated population density and it suggests that the highest population density was found in Manhattan 
-           while it extends into adjacent Boroughs">
-      <!--
-      <iframe src="PASTE-YOUR-EMBED-URL-HERE"
-              title="Describe your map" loading="lazy"></iframe>
-      -->
+     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · 
+Climate normals · Beichen Li" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?
+configurableview=true&webmap=ae06eec23f0b422d954ee7f14e78ec0c&theme=light&heading=true&legend=true&share=
+true&scroll=false&basemaps=true&center=-73.98917951683649,40.69793689296375&scale=288895.277144" ></iframe>
       <figcaption>
         Darker blue areas indicate higher estimated population density, while the Sentinel-2 satellite imagery underneath shows the physical built environment. 
         The densest areas are concentrated in Manhattan, especially upper east side and upper west side. 
