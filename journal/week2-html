@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 01 · Beichen Li</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beichen Li</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 01 · September 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1> Population Density and the Physical Landscape of New York City </h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+      In New York City, where do high population density and densely built-up areas go together because of housing, jobs and transportation accessibility?
+    </p>
+
+    <h2>The data</h2>
+    <p>
+      I combined the Sentinel-2 annual median true-colour satellite layer with the WorldPop 2020 population-density layer in the Site Scanner. 
+      The satellite imagery shows the physical landscapes, while the WorldPop layer estimates the number of people living in each approximately 100-metre grid cell. 
+      The population data layer only represents the estimated residential population instead of showing neither daytime population nor daytime population. To understand the question, I need to obtain the total population of the place. 
+    </p>
+    <p>
+      Write the proxy sentence here, once per indicator:
+      <em>I am using total residential population to stand for total population, and it might fail because residential population is just one category of total population.</em>
+    </p>
+
+    <h2>The method</h2>
+    <p>
+      First, I selected New York in the Site Scanner and used “Satellite (true colour)” as the underlying layer. 
+      Secondly, I then placed “People (population density)” on top and set its opacity to 0.75. 
+      Thirdly, I set map’s scale bar to approximately five kilometres, so that population patterns across New York City and surrounding areas could be compared.
+    </p>
+
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+    <figure>
+      <img src="Scanner Week 1.png" alt="This image exhibit the population density and physical landscapes of New York City. Darker blue areas represent higher estimated population density and it suggests that the highest population density was found in Manhattan 
+           while it extends into adjacent Boroughs">
+      <!--
+      <iframe src="PASTE-YOUR-EMBED-URL-HERE"
+              title="Describe your map" loading="lazy"></iframe>
+      -->
+      <figcaption>
+        Darker blue areas indicate higher estimated population density, while the Sentinel-2 satellite imagery underneath shows the physical built environment. 
+        The densest areas are concentrated in Manhattan, especially upper east side and upper west side. 
+      </figcaption>
+    </figure>
+
+    <h2>What I found</h2>
+    <p>
+      Plain language. What does the image actually support? Use at least three
+      of the ten words — pattern, distribution, density, clustering, proximity,
+      adjacency, connectivity, relationship, change, diffusion — and use them
+      correctly.
+     This image suggest a clear pattern of population density distribution in New York City. The population density pattern exhibit a strong clustering around Manhattan, 
+     and there is a postive relationship between the distance to Manhattan and the population density. 
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+        This image does not show the daily population change within one area so I had to assume that the daytime population and the night time population are the same. 
+        The extent I chose was approximately 1:500000. If I zoomed out one step, the distribution pattern of population density around Manhattan would become clearer but 
+        the internal differenciation within Manhattan might not have been observed. 
+      </p>
+      <p>
+        <strong>AI use:</strong> AI-assisted for grammar checking and proofreading, using Chatgpt.
+        I verified Chatgpt had been used to correct grammatical mistakes and polish languages. 
+      </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Beichen Li · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
