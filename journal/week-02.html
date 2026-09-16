@@ -58,7 +58,7 @@
        I opened the World Historical Climate layer in ArcGIS Online and filtered it to the United States. 
        I used the field <strong>GHCN-D ID</strong>, the operator <strong>starts with</strong>, and the value <strong>US</strong>. 
        I then added a second filter using the field <strong>GHCN-D ID</strong>, the operator <strong>is</strong>, and the value <strong>USW00094728</strong>. 
-       I set the condition group to “All of the following are true,” joining the two expressions with <strong>AND</strong>. This left one weather station representing the New York City area.
+       I set the condition group to “All of the following are true,” joining the two expressions with <strong>AND</strong>. This left one weather station located at Central Park is used as the proxy for the New York City area.
     </p>
 
     <!-- ============================================================
@@ -77,8 +77,8 @@ Climate normals · Beichen Li" src="https://nyuds.maps.arcgis.com/apps/mapviewer
 configurableview=true&webmap=ae06eec23f0b422d954ee7f14e78ec0c&theme=light&heading=true&legend=true&share=
 true&scroll=false&basemaps=true&center=-73.98917951683649,40.69793689296375&scale=288895.277144" ></iframe>
       <figcaption>
-        Darker blue areas indicate higher estimated population density, while the Sentinel-2 satellite imagery underneath shows the physical built environment. 
-        The densest areas are concentrated in Manhattan, especially upper east side and upper west side. 
+        Location of weather station USW00094728 in the New York City area. The station provides monthly climate normals for the 1981–2010 reference period; 
+        the following two charts show average monthly temperature (°C) and precipitation (mm).
       </figcaption>
     </figure> 
 
@@ -86,36 +86,50 @@ true&scroll=false&basemaps=true&center=-73.98917951683649,40.69793689296375&scal
 <figure>
   <img src="week2_New York City_Temperature.png"
        alt="Bar chart of average monthly temperature at [station] from 1981 to 2010.">
-  <figcaption>Average monthly temperature at [station], 1981–2010 normal, in °C.</figcaption>
+  <figcaption>Average monthly temperature at weather station USW00094728, 1981–2010 normal, in °C.</figcaption>
 </figure>
 
 <!-- Then: precipitation chart -->
 <figure>
   <img src="week2_New York City_Precipitation.png"  
        alt="Bar chart of average monthly precipitation at [station] from 1981 to 2010.">
-  <figcaption>Average monthly precipitation at [station], 1981–2010 normal, in mm.</figcaption>
+  <figcaption>Average monthly precipitation at weather station USW00094728, 1981–2010 normal, in mm.</figcaption>
 </figure>
 
     <h2>What I found</h2>
     <p>
-      Plain language. What does the image actually support? Use at least three
-      of the ten words — pattern, distribution, density, clustering, proximity,
-      adjacency, connectivity, relationship, change, diffusion — and use them
-      correctly.
-     This image suggest a clear pattern of population density distribution in New York City. The population density pattern exhibit a strong clustering around Manhattan, 
-     and there is a postive relationship between the distance to Manhattan and the population density. 
+     Global: With the filter removed, the warmest regions appear to be the Sahara, the Middle East, and parts of South Asia. 
+     These areas are largely located in the subtropics, where the dry belts associated with descending air pass through. 
+     In contrast, the world’s wet belt largely overlaps with the tropical zone. 
+     Becasue of Hadley cell, the warm air is heated at equator and ascends into troposphere forms the equatorial low-pressure zone. 
+     As the warm air rises, it cools and generates heavy rainfall which therefore creates wet belt along equator. 
+     Subsequently, the dry air spread out across towards north and south poles and it descends at around 30° north and south latitude and creats subtropical high-pressure zone and generates dry belt. 
     </p>
-
+    <p> 
+     Regional: In the United States, the eastern region broadly follows the global pattern of temperature distribution, with warmer climate in the south and colder climate in the north. 
+     In the west, however, elevation also plays an important role: the Rocky Mountains form a cold region across Montanna, Wyoming, Colorado and North Arizona. Besides, Alaska is the other cold region because of the high latitude. 
+     In terms of precipitation, the wettest areas appear to be Washington State, Oregon State and the Deep South, while the driest areas include southern California, southern Nevada, and southern Arizona.
+    </p> 
+     <p> 
+     Site: At New York City, the hottest and wettest month appears to be July. And the coldest month appears to be January while the dryest month appears to be Feburary. 
+     The rainfall distributes evenly across the year while the hottest season wetnesses slightly higher rainfall than the cold season. Solely base on these two charts, I assume that New York City has a temperate humid climate. 
+     However, the NOAA and the US National Climate Assessment reclassfied the climate of New York City as humid subtropical climate because average summer temperatures of New York City is above 72°F and average winter temperatures staying above 27°F.
+     </p> 
+     <p>
+     Comparison: Although New York City is located in the northeastern United States, its seasonal climate does not fully follow the broader regional pattern. 
+     Compared with inland locations at similar latitudes such as Pittsburgh or Chicago, New York City has relatively moderate seasonal temperature variation and precipitation distributed across the year rather than concentrated in one distinct wet season. 
+     This makes the city a coastal exception within the regional distribution of climate conditions.
+     </p> 
+     <p>
+     Limits: This map cannot show whether New York City’s climate change is caused by human activities or the natural causes. 
+     It only presents monthly averages from one weather station in New York City between 1981 and 2010
+     </p> 
+     
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        This image does not show the daily population change within one area so I had to assume that the daytime population and the night time population are the same. 
-        The extent I chose was approximately 1:500000. If I zoomed out one step, the distribution pattern of population density around Manhattan would become clearer but 
-        the internal differenciation within Manhattan might not have been observed. 
-      </p>
-      <p>
-        <strong>AI use:</strong> AI-assisted for grammar checking and proofreading, using Chatgpt.
-        I verified Chatgpt had been used to correct grammatical mistakes and polish languages. 
+        The weather station USW00094728 I chose represents only one observation location rather than the entire city. 
+        Temperature and precipitation may vary across New York City because of differences in land cover,tree canopy and build environment.
       </p>
     </div>
 
