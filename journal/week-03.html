@@ -62,7 +62,7 @@
     <p>
      I used ArcGIS Map Viewer to display Terrain – Slope Degrees for my site. I made two renderings of the same slope data: 
      First, I kept the natural breaks. Secondly, I narrowed the colour ramp’s data range and classified the layer into five classes using manual breaks as shown in the screenshot below. 
-     For the classified rendering, I used five manually defined classes: 0–5°, 5–10°, 10-15°, 15–30°, and 30–90° to increase the visual contrast. 
+     For the classified rendering, I used five manually defined classes: 0–5°, 5–10°, 10-15°, 15–20°, and 25-30° to increase the visual contrast. 
      I kept the map extent and zoom the same so the two renderings could be compared. The elevation values were converted to slope dynamically by the Terrain service. 
      For the soil map, I selected organic carbon density and the 15–30 cm depth interval in SoilGrids. 
      I also viewed the World Soils 250m Soil Organic Carbon layer in ArcGIS as a republication of the SoilGrids data, and switched on its uncertainty display to compare uncertainty across the area.
@@ -92,8 +92,8 @@
        <!-- Then: temperature chart -->
 <figure>
   <img src="Week3_Terrain Slope Natural Breaks.png"
-       alt="Terrain – Slope Map centered on Washington Square Park in New York City. Five colors show slope classes from 0–17° through 72–90°,"> 
-  <figcaption>Figure 1. Natural-break slope map. Terrain – Slope Map for my New York City site, displayed with five natural-break classes: 0–17°, 17–35°, 35–54°, 54–72°, and 72–90°. 
+       alt="Terrain – Slope Map centered on Washington Square Park in New York City. Five colors show slope classes from 0–17° through 72–90°"> 
+  <figcaption>Figure 2. Natural-break slope map. Terrain – Slope Map for my New York City site, displayed with five natural-break classes: 0–17°, 17–35°, 35–54°, 54–72°, and 72–90°. 
               The elevation source identified at this site is USGS CoNED TBDEM 1 m.
   </figcaption>
 </figure>
@@ -101,23 +101,24 @@
 <!-- Then: precipitation chart -->
 <figure>
   <img src="Week 3 Soil Organic Carbon.png"  
-       alt="SoilGrids map showing organic carbon density at the 15–30 cm depth interval around Washington Square Park in New York City,">
-  <figcaption>Figure 3. Soil organic carbon. Soil organic carbon density at the 15–30 cm depth interval for my New York City site, viewed in SoilGrids. 
-              SoilGrids is licensed under CC BY 4.0.</figcaption>
+       alt="SoilGrids map of organic carbon density at 15–30 cm around Washington Square Park, New York City, with the uncertainty layer displayed. The map shows spatial variation in the uncertainty of the predicted soil values.">
+  <figcaption> Figure 3. SoilGrids organic carbon density and uncertainty at the 15–30 cm depth interval around Washington Square Park, New York City. 
+               The uncertainty layer shows where the mapped soil estimates are less certain; it does not show measured carbon values. SoilGrids data are available under CC BY 4.0..</figcaption>
 </figure>
+
+
 
     <h2>What I found</h2>
     <p>
-     Expectation: I expected my New York City site to be mostly flat becuase it is mostly covered by human-made surface.
-     For rain water within the city, I expected it to flow toward the nearest lower ground, such as a street drain. For natural water body such as Hudson River, I expected it to flow from the North to the south and eventually merges into the ocean. 
-     I would be surprised if the map showed a steep slope or major ridge at New York City because I expected the local terrain to be relatively flat.
+     Expectation: I expected Washington Square Park to have relatively low relief because it is in a heavily built-up part of Manhattan. The slope map mostly shows low slope around the site, which fits that expectation at the map’s scale, 
+     though the map cannot confirm the condition of every small feature.
     </p>
     <p> 
-     Regional: Across the New York City region, the map shows mostly low-slope terrain, with steeper bands in some nearby areas such as Jersey City and Staten Island. 
-     The relief around the region’s coastline explain this contrast: inland areas are steeper, while low-lying coastal areas are flatter. After zooming out into a greater region, the pattern becomes more straightforward. 
+     Regional: At the regional scale, the map shows mostly low slopes around the New York City area, with some steeper patches nearby. 
+     This broad contrast is consistent with flatter coastal and river lowlands beside more varied relief, although the slope map by itself does not explain the causes.
      <p> 
-     Site: At my site, Whashington Square Park, becuase the ground is mainly covered by the humman made surface, there is no clear direction that where the surface water would go. 
-     The loose material would be carried by the surface runoff and collect in the street drain. 
+     Site: At Washington Square Park, the slope map shows mostly low slopes and does not establish a clear downhill direction. 
+     Surface material could move downslope during rain, but this map alone cannot identify its route or where it would collect.
      </p> 
      <p>
      Comparison: My site appears flatter than the surrounding region because of its highly human-made surface, which makes my site an outlier. Its elevation data are unusually fine relative to many sites in the class: 
@@ -130,7 +131,7 @@
     <div class="limits">
       <p>
         This map cannot show exactly where rainwater will flow through my site or where it will collect because the map does not show drainage infrastructure, buildings, curbs, or other features that can redirect water.
-        Also, this map cannot show features smaller than 1-meter cell size given the resolution. 
+        Also, this map cannot annot reliably resolve features smaller than a 1 m cell. 
       </p>
     </div>
 
