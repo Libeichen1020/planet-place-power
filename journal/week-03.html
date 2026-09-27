@@ -80,7 +80,7 @@
          choose Share → Embed, delete the <img> line, remove the <!-- and
          --> 
     <figure>
-     <<iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 2 · Terrain · Beichen Li" src=
+     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 2 · Terrain · Beichen Li" src=
         "https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=d821e64cc3ac429a83396aef3492bf73&theme=light&heading=true&legend=true&share=true&scroll=false&center=
          -73.99183089892514,40.72309702287203&scale=36111.909643" ></iframe>
       <figcaption>
@@ -108,40 +108,29 @@
 
     <h2>What I found</h2>
     <p>
-     Global: With the filter removed, the warmest regions appear to be the Sahara, the Middle East, and parts of South Asia. 
-     These areas are largely located in the subtropics, where the dry belts associated with descending air pass through. 
-     In contrast, the world’s wet belt largely overlaps with the tropical zone. 
-     Becasue of Hadley cell, the warm air is heated at equator and ascends into troposphere forms the equatorial low-pressure zone. 
-     As the warm air rises, it cools and generates heavy rainfall which therefore creates wet belt along equator. 
-     Subsequently, the dry air spread out across towards north and south poles and it descends at around 30° north and south latitude and creats subtropical high-pressure zone and generates dry belt. 
+     Expectation: I expected my New York City site to be mostly flat becuase it is mostly covered by human-made surface.
+     For rain water within the city, I expected it to flow toward the nearest lower ground, such as a street drain. For natural water body such as Hudson River, I expected it to flow from the North to the south and eventually merges into the ocean. 
+     I would be surprised if the map showed a steep slope or major ridge at New York City because I expected the local terrain to be relatively flat.
     </p>
     <p> 
-     Regional: In the United States, the eastern region broadly follows the global pattern of temperature distribution, with warmer climate in the south and colder climate in the north. 
-     In the west, however, elevation also plays an important role: the Rocky Mountains form a cold region across Montanna, Wyoming, Colorado and North Arizona. Besides, Alaska is the other cold region because of the high latitude. 
-     In terms of precipitation, the wettest areas appear to be Washington State, Oregon State and the Deep South, while the driest areas include southern California, southern Nevada, and southern Arizona.
-    </p> 
+     Regional: Across the New York City region, the map shows mostly low-slope terrain, with steeper bands in some nearby areas such as Jersey City and Staten Island. 
+     The relief around the region’s coastline explain this contrast: inland areas are steeper, while low-lying coastal areas are flatter. After zooming out into a greater region, the pattern becomes more straightforward. 
      <p> 
-     Site: At New York City, the hottest and wettest month appears to be July. And the coldest month appears to be January while the dryest month appears to be Feburary. 
-     The rainfall distributes evenly across the year while the hottest season wetnesses slightly higher rainfall than the cold season. Solely base on these two charts, I assume that New York City has a temperate humid climate. 
-     However, the NOAA and the US National Climate Assessment reclassfied the climate of New York City as humid subtropical climate because average summer temperatures of New York City is above 72°F and average winter temperatures staying above 27°F.
+     Site: At my site, Whashington Square Park, becuase the ground is mainly covered by the humman made surface, there is no clear direction that where the surface water would go. 
+     The loose material would be carried by the surface runoff and collect in the street drain. 
      </p> 
      <p>
-     Comparison: Although New York City is located in the northeastern United States, its seasonal climate does not fully follow the broader regional pattern. 
-     Compared with inland locations at similar latitudes such as Pittsburgh or Chicago, New York City has relatively moderate seasonal temperature variation and precipitation distributed across the year rather than concentrated in one distinct wet season. 
-     This makes the city a coastal exception within the regional distribution of climate conditions.
+     Comparison: My site appears flatter than the surrounding region because of its highly human-made surface, which makes my site an outlier. Its elevation data are unusually fine relative to many sites in the class: 
+     the finest dataset identified here is USGS CoNED TBDEM 1 m, while several sites in the tutorial’s comparison use coarser elevation data. So this map can show smaller terrain variations than those coarser datasets. 
+     For my New York City site to be in the 1 m group, a public agency—such as USGS would need to commission a 1 m elevation survey, likely using LiDAR. The agency would then need to publish the data openly so it could be accessed by Arcgis. 
      </p> 
-     <p>
-     Limits: This map cannot show whether New York City’s climate change is caused by human activities or the natural causes. 
-     It only presents monthly averages from one weather station in New York City between 1981 and 2010
-     </p> 
+    
      
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The weather station USW00094728 I chose represents only one observation location rather than the entire city. 
-        Temperature and precipitation may vary across New York City because of differences in land cover,tree canopy and build environment.
-        Also, the monthly weather data hide the day-to-day variation. One extreme weather event could influence people substantially. 
-        Furthermore, we cannot make causal conclusion of the data or what causes the climate change in New York City solely based on the data provided. 
+        This map cannot show exactly where rainwater will flow through my site or where it will collect because the map does not show drainage infrastructure, buildings, curbs, or other features that can redirect water.
+        Also, this map cannot show features smaller than 1-meter cell size given the resolution. 
       </p>
     </div>
 
