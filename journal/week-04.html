@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 04 · Beichen Li</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beichen Li</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 04 · September 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1> Pattern, Scale and Density, New York City’s Terrain and Shape </h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+    What soil properties and terrain patterns are visible at my site in New York City, and how might they shape water movement? 
+    </p>
+
+    <h2>The data</h2>
+    <p>
+      Elevation and slope: I used Esri’s Terrain layer, a global elevation service that returns ground-height values in metres and compiles data from multiple providers at different resolutions. 
+      At my site, the World Elevation Coverage Map identified USGS CoNED TBDEM (USGS_CoNED_TBDEM1m) as the finest available dataset, with a 1 m pixel size. 
+      Its LE90 is not stated; the vertical datum is listed as variable, and the date range is 1859–2020. The 1859 start date is a metadata artifact, not an actual survey date. 
+      I also used Terrain – Slope Degrees, which derives slope dynamically from Terrain using a server-side function. 
+
+      Soil: I used SoilGrids to examine organic carbon density at the 15–30 cm depth interval and turned on the uncertainty layer to view the uncertainty associated with its predicted values. 
+      This layer represents uncertainty in the estimates; it does not provide a separate measurement of soil carbon. SoilGrids’ original maps are available under CC BY 4.0. 
+      I also added Esri’s World Soils 250m Soil Organic Carbon layer, whose item page lists the Esri Master License Agreement. 
+
+      All items require an ArcGIS Online organizational subscription or an ArcGIS Developer account and does not consume credits. 
+    </p>
+
+    <h2>The method</h2>
+    <p>
+     I used ArcGIS Map Viewer to display Terrain – Slope Degrees for my site. I made two renderings of the same slope data: 
+     First, I kept the natural breaks. Secondly, I narrowed the colour ramp’s data range and classified the layer into five classes using manual breaks as shown in the screenshot below. 
+     For the classified rendering, I used five manually defined classes: 0–5°, 5–10°, 10-15°, 15–20°, and 25-30° to increase the visual contrast. 
+     I kept the map extent and zoom the same so the two renderings could be compared. The elevation values were converted to slope dynamically by the Terrain service. 
+     For the soil map, I selected organic carbon density and the 15–30 cm depth interval in SoilGrids. 
+     I also viewed the World Soils 250m Soil Organic Carbon layer in ArcGIS as a republication of the SoilGrids data, and switched on its uncertainty display to compare uncertainty across the area.
+    </p>
+       
+     <h2>The evidence</h2>
+    <!-- ============================================================
+         YOUR EVIDENCE
+
+         WEEK 1: a screenshot from the Site Scanner. Upload it into this
+         journal folder (Add file → Upload files) and change the src
+         below to your filename, for example src="scanner-01.png".
+
+         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
+         choose Share → Embed, delete the <img> line, remove the <!-- and
+         --> 
+    <figure>
+     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 2 · Terrain · Beichen Li" src=
+        "https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=d821e64cc3ac429a83396aef3492bf73&theme=light&heading=true&legend=true&share=true&scroll=false&center=
+         -73.99183089892514,40.72309702287203&scale=36111.909643" ></iframe>
+      <figcaption>
+       Figure 1. Manually classified slope map. Terrain – Slope Degrees for the same site, displayed with five manually defined classes: 0–5°, 5–10°, 10–15°, 15–20°, and 20–25°. 
+       The elevation source identified at this site is USGS CoNED TBDEM 1 m.
+      </figcaption>
+    </figure> 
+
+       <!-- Then: temperature chart -->
+<figure>
+  <img src="Week3_Terrain Slope Natural Breaks.png"
+       alt="Terrain – Slope Map centered on Washington Square Park in New York City. Five colors show slope classes from 0–17° through 72–90°"> 
+  <figcaption>Figure 2. Natural-break slope map. Terrain – Slope Map for my New York City site, displayed with five natural-break classes: 0–17°, 17–35°, 35–54°, 54–72°, and 72–90°. 
+              The elevation source identified at this site is USGS CoNED TBDEM 1 m.
+  </figcaption>
+</figure>
+
+<!-- Then: precipitation chart -->
+<figure>
+  <img src="Week 3 Soil Organic Carbon.png"  
+       alt="SoilGrids map of organic carbon density at 15–30 cm around Washington Square Park, New York City, with the uncertainty layer displayed. The map shows spatial variation in the uncertainty of the predicted soil values.">
+  <figcaption> Figure 3. SoilGrids organic carbon density and uncertainty at the 15–30 cm depth interval around Washington Square Park, New York City. 
+               The uncertainty layer shows where the mapped soil estimates are less certain; it does not show measured carbon values. SoilGrids data are available under CC BY 4.0..</figcaption>
+</figure>
+
+
+
+    <h2>What I found</h2>
+    <p>
+     Expectation: I expected Washington Square Park to have relatively low relief because it is in a heavily built-up part of Manhattan. The slope map mostly shows low slope around the site, which fits that expectation at the map’s scale, 
+     though the map cannot confirm the condition of every small feature.
+    </p>
+    <p> 
+     Regional: At the regional scale, the map shows mostly low slopes around the New York City area, with some steeper patches nearby. 
+     This broad contrast is consistent with flatter coastal and river lowlands beside more varied relief, although the slope map by itself does not explain the causes.
+     <p> 
+     Site: At Washington Square Park, the slope map shows mostly low slopes and does not establish a clear downhill direction. 
+     Surface material could move downslope during rain, but this map alone cannot identify its route or where it would collect.
+     </p> 
+     <p>
+     Comparison: My site appears flatter than the surrounding region because of its highly human-made surface, which makes my site an outlier. Its elevation data are unusually fine relative to many sites in the class: 
+     the finest dataset identified here is USGS CoNED TBDEM 1 m, while several sites in the tutorial’s comparison use coarser elevation data. So this map can show smaller terrain variations than those coarser datasets. 
+     For my New York City site to be in the 1 m group, a public agency—such as USGS would need to commission a 1 m elevation survey, likely using LiDAR. The agency would then need to publish the data openly so it could be accessed by Arcgis. 
+     </p> 
+    
+     
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+        This map cannot show exactly where rainwater will flow through my site or where it will collect because the map does not show drainage infrastructure, buildings, curbs, or other features that can redirect water.
+        Also, this map cannot annot reliably resolve features smaller than a 1 m cell. SoilGrids uncertainty layer also does not show the true organic carbon value at each location; it shows uncertainty in the predicted values, 
+        so the map cannot confirm the precise carbon density of the soil at a specific point.
+      </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Beichen Li · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
