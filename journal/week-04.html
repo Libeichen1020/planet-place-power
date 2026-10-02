@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1> Pattern, Scale and Density, New York City’s Terrain and Shape </h1>
+    <h1> Pattern, Scale and Density, New York City’s Greenness </h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -42,31 +42,27 @@
 
     <h2>The question</h2>
     <p>
-    What soil properties and terrain patterns are visible at my site in New York City, and how might they shape water movement? 
+    What is the green at Washington Square Park, New York City, actually made of, and how do its pattern, scale, and density appear in the Landsat vegetation-index map?
     </p>
 
     <h2>The data</h2>
     <p>
-      Elevation and slope: I used Esri’s Terrain layer, a global elevation service that returns ground-height values in metres and compiles data from multiple providers at different resolutions. 
-      At my site, the World Elevation Coverage Map identified USGS CoNED TBDEM (USGS_CoNED_TBDEM1m) as the finest available dataset, with a 1 m pixel size. 
-      Its LE90 is not stated; the vertical datum is listed as variable, and the date range is 1859–2020. The 1859 start date is a metadata artifact, not an actual survey date. 
-      I also used Terrain – Slope Degrees, which derives slope dynamically from Terrain using a server-side function. 
+      I used Multispectral Landsat Imagery Layer in Arcgis Map Viewer, which includes Landsat GLS, Landsat 8, and Landsat 9 imagery for use in visualization and analysis.
+      The Landsat 8 and 9 imagery in this layer is updated daily and is directly sourced from the USGS Landsat collection on AWS.
+      I also used the Landsat 8 and Landsat 9 images shown in Landsat Explorer, acquired on May 12 2026 and July 16 2026, with a scene cloud cover of 1% and 48% respectively. 
+      The sensor’s pixel size is 30 m, so each pixel represents about 900 m² on the ground. I examined the Normalized Difference Vegetation Index (NDVI), 
+      calculated from red band 4 and near-infrared band 5: (band 5 − band 4) / (band 5 + band 4). The imagery service is publicly viewable without signing in.
 
-      Soil: I used SoilGrids to examine organic carbon density at the 15–30 cm depth interval and turned on the uncertainty layer to view the uncertainty associated with its predicted values. 
-      This layer represents uncertainty in the estimates; it does not provide a separate measurement of soil carbon. SoilGrids’ original maps are available under CC BY 4.0. 
-      I also added Esri’s World Soils 250m Soil Organic Carbon layer, whose item page lists the Esri Master License Agreement. 
-
-      All items require an ArcGIS Online organizational subscription or an ArcGIS Developer account and does not consume credits. 
+     
     </p>
 
     <h2>The method</h2>
     <p>
-     I used ArcGIS Map Viewer to display Terrain – Slope Degrees for my site. I made two renderings of the same slope data: 
-     First, I kept the natural breaks. Secondly, I narrowed the colour ramp’s data range and classified the layer into five classes using manual breaks as shown in the screenshot below. 
-     For the classified rendering, I used five manually defined classes: 0–5°, 5–10°, 10-15°, 15–20°, and 25-30° to increase the visual contrast. 
-     I kept the map extent and zoom the same so the two renderings could be compared. The elevation values were converted to slope dynamically by the Terrain service. 
-     For the soil map, I selected organic carbon density and the 15–30 cm depth interval in SoilGrids. 
-     I also viewed the World Soils 250m Soil Organic Carbon layer in ArcGIS as a republication of the SoilGrids data, and switched on its uncertainty display to compare uncertainty across the area.
+    In ArcGIS Map Viewer, I added the Multispectral Landsat Imagery Layer with the NDVI Colorized processing template and kept my site points visible. 
+    I then used Landsat Explorer’s NDVI Raw view to read the index because the colorized layer’s popup shows a color-table value rather than the actual NDVI. 
+    In Landsat Explorer, I used spectral profile tool in analysis tool to read NDVI values of example site points and my own stie points.  
+    I also used the mask tool with a lower threshold of 0.5, so pixels at or above 0.5 were highlighted. This threshold shows relatively high greenness; 
+    it does not classify habitat quality. I kept the map extent consistent and included a readable legend and scale bar in the screenshot.
     </p>
        
      <h2>The evidence</h2>
@@ -110,29 +106,29 @@
 
     <h2>What I found</h2>
     <p>
-     Expectation: I expected Washington Square Park to have relatively low relief because it is in a heavily built-up part of Manhattan. The slope map mostly shows low slope around the site, which fits that expectation at the map’s scale, 
-     though the map cannot confirm the condition of every small feature.
+     Expectation: In Part 0, I predicted that the picnic point at Governors Island would have the highest NDVI, followed by a fairway at Liberty National Golf Course and the Pond at Central Park . I expect the NDVI valus at Governors Island to be 0.5,
+     Liberty National Golf Course to be 0.2 and the Pond at Central Park to be -0.1. Since the picnic point at Governors Island is mainly covered by trees while it scatters near-infrared back out but the Pond is water surface and it reflects relatively less near-infrared. 
+     The actual values were 0.632 at Governors Island, 0.646 at National Liberty Golf Course and 0.218 at Central Park on May 12, when the cloud cover is 1%. Therefore, a fairway at Liberty National Golf Course exhibits the highest NDVI value. I am more worry about the ordering since the size of the gap is smaller than I expected. 
     </p>
     <p> 
-     Regional: At the regional scale, the map shows mostly low slopes around the New York City area, with some steeper patches nearby. 
-     This broad contrast is consistent with flatter coastal and river lowlands beside more varied relief, although the slope map by itself does not explain the causes.
+     Site: At Washington Sqaure Park, the NDVI was 0.798 on May 12 2026, when the cloud cover is 1%. The green of my site is actually made of trees. 
      <p> 
-     Site: At Washington Square Park, the slope map shows mostly low slopes and does not establish a clear downhill direction. 
-     Surface material could move downslope during rain, but this map alone cannot identify its route or where it would collect.
+     City: The NDVI at Washington Square Park is above the botanical garden’s median of 0.517 and above the golf course’s median of 0.600 in the comparison table and Shanghai had a cloud cover of 1.1% on Auguest 22 2025 while New York City
+     had a cloud cover of 1% on MAY 12 2026. I can conclude that my site has a higher measured greenness. This means the pixel at my site reflected more near-infrared light relative to red light on the image date. 
+     It does not show that my site has better habitat or more biodiversity, because the comparison uses different locations and use dates; NDVI measures greenness, not ecological quality.
      </p> 
      <p>
-     Comparison: My site appears flatter than the surrounding region because of its highly human-made surface, which makes my site an outlier. Its elevation data are unusually fine relative to many sites in the class: 
-     the finest dataset identified here is USGS CoNED TBDEM 1 m, while several sites in the tutorial’s comparison use coarser elevation data. So this map can show smaller terrain variations than those coarser datasets. 
-     For my New York City site to be in the 1 m group, a public agency—such as USGS would need to commission a 1 m elevation survey, likely using LiDAR. The agency would then need to publish the data openly so it could be accessed by Arcgis. 
+     The Named Place. After I set the NDVI value range as 0.5 to 1, on May 12, 2026, the majority of Liberty National Golf Course lit up, which is covered by artificially constructed turf and it is not a natural habitat. 
+     Just a couple hundred meters away, the middle section of Liberty State Park does not light up. Actually, it is habitat for around 200 wild white-tailed deers but the trees in that areas were removed and those deers were culled 
+     because of the park redevelopment program. The NDVI values at Liberty National Golf Course is approximately 0.6 and 0.3 for Liberty National State Park. 
      </p> 
     
      
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        This map cannot show exactly where rainwater will flow through my site or where it will collect because the map does not show drainage infrastructure, buildings, curbs, or other features that can redirect water.
-        Also, this map cannot annot reliably resolve features smaller than a 1 m cell. SoilGrids uncertainty layer also does not show the true organic carbon value at each location; it shows uncertainty in the predicted values, 
-        so the map cannot confirm the precise carbon density of the soil at a specific point.
+        I am using NDVI at my site to stand for the amount of living habitat, and it might fail because the index can assign high values to maintained turf or ornamental planting without showing native species, understorey, or whether wildlife can use the area. 
+        NDVI also describes the image on one date, not seasonal conditions or everything living below the canopy.
       </p>
     </div>
 
