@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 03 · Beichen Li</title>
+<title>Week 04 · Beichen Li</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -27,7 +27,7 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 03 · September 2026</p>
+    <p class="kicker">Week 04 · October 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
@@ -58,13 +58,11 @@
 
     <h2>The method</h2>
     <p>
-    In ArcGIS Map Viewer, I added the Multispectral Landsat Imagery Layer with the NDVI Colorized processing template and kept my site points visible. 
-    I then used Landsat Explorer’s NDVI Raw view to read the index because the colorized layer’s popup shows a color-table value rather than the actual NDVI. 
-    In Landsat Explorer, I used spectral profile tool in analysis tool to read NDVI values of example site points and my own stie points.  
-    I also used the mask tool with a lower threshold of 0.5, so pixels at or above 0.5 were highlighted. This threshold shows relatively high greenness; 
-    it does not classify habitat quality. I kept the map extent consistent and included a readable legend and scale bar in the screenshot.
+    In ArcGIS Map Viewer, I added the Multispectral Landsat imagery layer and selected the NDVI Colorized processing template. I kept my site point visible and used Landsat Explorer's spectral profile
+    tool to compare the red and near-infrared reflectance of vegetation and built surfaces. I then switched to NDVI Raw to record the actual index values, because the colorized layer's popup reports a
+    color-table position rather than the NDVI value. Finally, I used the mask tool with a range of 0.5 to 1.0 to highlight relatively green pixels. This threshold identifies vegetation reflectance; it does not
+    certify habitat quality. The evidence section includes the interactive map and static screenshots with a legend and scale bar.
 
-    I put both map and the screenshot if the map cannot be loaded successfully. 
     </p>
        
      <h2>The evidence</h2>
@@ -99,8 +97,8 @@
 <!-- Then: greenness threshold chart -->
 <figure>
   <img src="Week4_Green_Threshold.png"  
-       alt="SoilGrids map of organic carbon density at 15–30 cm around Washington Square Park, New York City, with the uncertainty layer displayed. The map shows spatial variation in the uncertainty of the predicted soil values.">
-  <figcaption>Figure 3. NDVI threshold map of Washington Square Park and the surrounding area, created from a Landsat 9 scene acquired on May 12, 2026, with 0.00% scene cloud cover. 
+       alt="NDVI threshold map of Washington Square Park and the surrounding region. Pixels with NDVI values from 0.5 to 1 are highlighted, including the managed turf of Liberty National Golf Course, while much of the cleared interior of Liberty State Park remains dark.">
+  <figcaption>Figure 3. NDVI threshold map of Washington Square Park and the surrounding area, created from a Landsat 9 scene acquired on May 12, 2026, with 1% scene cloud cover. 
                Pixels with NDVI values of 0.5 or higher are highlighted</figcaption>
 </figure>
 
@@ -108,21 +106,23 @@
 
     <h2>What I found</h2>
     <p>
-     Expectation: In Part 0, I predicted that the picnic point at Governors Island would have the highest NDVI, followed by a fairway at Liberty National Golf Course and the Pond at Central Park . I expect the NDVI valus at Governors Island to be 0.5,
-     Liberty National Golf Course to be 0.2 and the Pond at Central Park to be -0.1. Since the picnic point at Governors Island is mainly covered by trees while it scatters near-infrared back out but the Pond is water surface and it reflects relatively less near-infrared. 
-     The actual values were 0.632 at Governors Island, 0.646 at National Liberty Golf Course and 0.218 at Central Park on May 12, when the cloud cover is 1%. Therefore, a fairway at Liberty National Golf Course exhibits the highest NDVI value. I am more worry about the ordering since the size of the gap is smaller than I expected. 
+     Expectation: In Part 0, I predicted that the picnic area on Governors Island would have the highest NDVI, followed by a fairway at Liberty National Golf Course and the Pond in Central Park.
+     My predicted values were 0.5, 0.2, and −0.1, respectively. On May 12, 2026, the measured values were 0.632 at Governors Island, 0.646 at Liberty National Golf Course, and 0.218 at the Pond. The golf-course
+     fairway therefore ranked first. I am more concerned about getting the ordering wrong because it shows that a carefully maintained turf surface can appear slightly greener than a tree-covered picnic area.
+     The Pond's positive value may also reflect the 30 m pixel scale, which can mix water with nearby trees and other surfaces.
     </p>
     <p> 
-     Site: At Washington Sqaure Park, the NDVI was 0.798 on May 12 2026, when the cloud cover is 1%. The green of my site is actually made of trees. 
-     <p> 
-     City: The NDVI at Washington Square Park is above the botanical garden’s median of 0.517 and above the golf course’s median of 0.600 in the comparison table and Shanghai had a cloud cover of 1.1% on Auguest 22 2025 while New York City
-     had a cloud cover of 1% on MAY 12 2026. I can conclude that my site has a higher measured greenness. This means the pixel at my site reflected more near-infrared light relative to red light on the image date. 
-     It does not show that my site has better habitat or more biodiversity, because the comparison uses different locations and use dates; NDVI measures greenness, not ecological quality.
+     Site:At Washington Square Park, the NDVI was 0.798 on May 12, 2026, when the scene cloud cover was 1%. The visible green at my site is mainly tree canopy,
+     together with maintained lawn.
+     </p> 
+     City: Washington Square Park's reading of 0.798 is higher than the Shanghai Botanical Garden median of 0.517 and the Tomson Shanghai Golf Club median of 0.600 in the tutorial table. This
+     means that my sampled pixel had a higher NDVI on its acquisition date. The comparison does not mean that Washington Square Park has better habitat because the readings come from different cities,
+     dates. NDVI measures the contrast between near-infrared and red reflectance rather than ecological quality.
      </p> 
      <p>
-     The Named Place. After I set the NDVI value range as 0.5 to 1, on May 12, 2026, the majority of Liberty National Golf Course lit up, which is covered by artificially constructed turf and it is not a natural habitat. 
-     Just a couple hundred meters away, the middle section of Liberty State Park does not light up. Actually, it is habitat for around 200 wild white-tailed deers but the trees in that areas were removed and those deers were culled 
-     because of the park redevelopment program. The NDVI values at Liberty National Golf Course is approximately 0.6 and 0.3 for Liberty National State Park. 
+     The Named Place: After I set the NDVI mask to 0.5–1.0, most of Liberty National Golf Course was highlighted. Its approximate NDVI was 0.646, although the highlighted surface is
+     intensively maintained turf with limited habitat complexity. A few hundred metres away, much of the cleared interior of Liberty State  Park remained below the threshold, at approximately 0.3. 
+     This area has supported white-tailed deer, but vegetation was cleared during contaminated-soil remediation and the park's revitalization program.
      </p> 
     
      
