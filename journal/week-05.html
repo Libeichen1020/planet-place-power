@@ -42,7 +42,7 @@
 
     <h2>The question</h2>
     <p>
-    What is the green at Washington Square Park, New York City, actually made of, and how do its pattern, scale, and density appear in the Landsat vegetation-index map?
+   What is the watershed around Bobst Library, New York City, actually shaped by, and how do its boundaries, scale, and water stress appear in the watershed delineation and Aqueduct maps?
     </p>
 
     <h2>The data</h2>
@@ -106,19 +106,19 @@
 
     <h2>What I found</h2>
     <p>
-     Expectation: In Part 0, I predicted that the picnic area on Governors Island would have the highest NDVI, followed by a fairway at Liberty National Golf Course and the Pond in Central Park.
-     My predicted values were 0.5, 0.2, and −0.1, respectively. On May 12, 2026, the measured values were 0.632 at Governors Island, 0.646 at Liberty National Golf Course, and 0.218 at the Pond. The golf-course
-     fairway therefore ranked first. I am more concerned about getting the ordering wrong because it shows that a carefully maintained turf surface can appear slightly greener than a tree-covered picnic area.
-     The Pond's positive value may also reflect the 30 m pixel scale, which can mix water with nearby trees and other surfaces.
+     Expectation: In Part 0, I predicted that the water would directly enter drainage system under Washington Square Park and the water would end up in Hudson River. For the tap water, I predicted that it come from 
+     Hudson River. However, NYC DEP syas it says the city’s supply comes from upstate reservoirs (about 100 miles away) in the Catskill, Delaware, and Croton systems, often as a blend; it cannot identify Bobst’s exact source from that general statement.
     </p>
     <p> 
-     Site:At Washington Square Park, the NDVI was 0.798 on May 12, 2026, when the scene cloud cover was 1%. The visible green at my site is mainly tree canopy,
-     together with maintained lawn.
+     The boundary: At Bobst Library, I first applied MERIT-Hydro data with lower precision but the system auotomatically shifted to higher-precision. I repeated for multiple times and zoomed out the extent and the system constantly generate watershed 
+     with higher precision. The higher precision generates a 2 km² delineation with a reported outlet near 40.741, −74.008. The requested coordinate was 40.729716, −73.996762, so the reported outlet is approximately 1.6 km away, calculated from coordinates rounded by the app.
+     However, no river is found in the watershed because the watershed is relatively small and both Hudson River and East River is excluded. 
+     Secondly, I adopted the HydroSHEDS (2013) model associated with higher precision, which generates a 59 km² with a reported outlet near 40.73, -73.997, located at the Wards Island Park on Randalls Island. These two answers differed by 29 times. 
+     Thirdly, I applied USGS but the system returend a message “Sorry, could not get the watershed boundary”, which is because USGS hydrography is built around gauged stream reaches, and the middle of Manhattan is not the one. 
+     
      </p> 
      <p> 
-     City: Washington Square Park's reading of 0.798 is higher than the Shanghai Botanical Garden median of 0.517 and the Tomson Shanghai Golf Club median of 0.600 in the tutorial table. This
-     means that my sampled pixel had a higher NDVI on its acquisition date. The comparison does not mean that Washington Square Park has better habitat because the readings come from different cities,
-     dates. NDVI measures the contrast between near-infrared and red reflectance rather than ecological quality.
+     The unit: 
      </p> 
      <p>
      The Named Place: After I set the NDVI mask to 0.5–1.0, most of Liberty National Golf Course was highlighted. Its approximate NDVI was 0.646, although the highlighted surface is
