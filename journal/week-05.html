@@ -82,27 +82,27 @@
          choose Share → Embed, delete the <img> line, remove the <!-- and
          --> 
     <figure>
-     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 3 · Green · Beichen Li " src=
-     "https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=fb2ad58949c7426fb73e733c96c331bc&theme=light&heading=true&legend=true&information=true&scroll=false&center=-74.01826957330216,40.69717413188628&scale=288895.277144" ></iframe>
+     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 4 · Water · Beichen Li " src=
+       "https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=95fed0bd869e4f3799890e0106c136e7&theme=light&heading=true&legend=true&scroll=false&center=-73.98848789283862,40.751923269817645&scale=288895.277144" ></iframe>
       <figcaption>
-       Figure 2. Landsat 9 NDVI Colorized map of Washington Square Park, acquired May 12 2026 with 1% scene cloud cover.
-       Greener colors represent higher NDVI values, while less-green areas have lower values.
+       Figure 1. Baseline annual water stress for the Aqueduct 4.0 polygon containing Bobst Library. The polygon has a water-stress value of 0.06, classified as Low (<10%), and covers 57.93 km². 
+       Source: Aqueduct 4.0, World Resources Institute; baseline period 1979–2019; data vintage April 2023; CC BY 4.0.
       </figcaption>
     </figure> 
 
        <!-- Then: greenness chart -->
 <figure>
-  <img src="Week4_Green.png"
-       alt="Colorized Landsat NDVI map of Washington Square Park and the surrounding area. Higher NDVI values appear greener and are concentrated in the park and other vegetated areas, while streets and buildings have lower values. The site point, legend, and scale bar are visible."> 
-  <figcaption>Figure 3. Watershed delineations for Bobst Library generated with Global Watersheds in October 2026. MERIT-Hydro at higher precision returned a 2 km² catchment
+  <img src="Week5_MERIT_hydro.png"
+       alt="Global Watersheds map showing a 2-square-kilometre catchment around Bobst Library generated with MERIT-Hydro at higher precision. The modeled boundary covers part of Lower Manhattan, the outlet is near 40.741, −74.008, and no river reaches or snapped-to-river marker were found within the catchment."> 
+  <figcaption>Figure 2. Watershed delineations for Bobst Library generated with Global Watersheds in October 2026. MERIT-Hydro at higher precision returned a 2 km² catchment
 </figure>
 
 <!-- Then: greenness threshold chart -->
 <figure>
-  <img src="Week4_Green_Threshold.png"  
-       alt="NDVI threshold map of Washington Square Park and the surrounding region. Pixels with NDVI values from 0.5 to 1 are highlighted, including the managed turf of Liberty National Golf Course, while much of the cleared interior of Liberty State Park remains dark.">
-  <figcaption>Figure 3. NDVI threshold map of Washington Square Park and the surrounding area, created from a Landsat 9 scene acquired on May 12, 2026, with 1% scene cloud cover. 
-               Pixels with NDVI values of 0.5 or higher are highlighted</figcaption>
+  <img src="Week4_Hydroshed.png"  
+       alt="Aqueduct 4.0 map showing Bobst Library inside a 57.93-square-kilometre North Atlantic Coast Basin polygon classified as having low baseline annual water stress, with a value of 0.06.">
+  <figcaption>Figure 3. Modeled watershed around Bobst Library using HydroSHEDS (2013), showing a 59 km² catchment, the requested location, the snapped outlet, and the modeled river network. Generated with Global Watersheds in October 2026.
+  </figcaption>
 </figure>
 
 
