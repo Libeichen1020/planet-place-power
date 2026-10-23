@@ -59,38 +59,21 @@
     I selected 2017 and 2025 because they are the earliest and latest years available in the Sentinel-2 land-cover series and bracket the construction of NYU’s Paulson Center near Washington Square Park. 
     Construction began in 2016, and the building officially opened in January 2023. Comparing 2017 with 2025 therefore tests whether the classifier captured the transformation from an active construction site to a completed large-scale building.
     I used Swipe mode to compare 2017 and 2025 while holding the map extent, scale, rendering, and land-cover product constant. Both sides use the same nine classes and colors. I selected the 1:1 option so both years were displayed at the native resolution of 1 px:10 m.
+    I treated Washington Sqaure Park as my primary site, and Liberty Sqaure Park as my secondary site, which witnessed relatively more substantial change, for comparison purpose. 
 
     </p>
        
      <h2>The evidence</h2>
-    <!-- ============================================================
-         YOUR EVIDENCE
-
-         WEEK 1: a screenshot from the Site Scanner. Upload it into this
-         journal folder (Add file → Upload files) and change the src
-         below to your filename, for example src="scanner-01.png".
-
-         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
-         choose Share → Embed, delete the <img> line, remove the <!-- and
-         --> 
-    <figure>
-     <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 4 · Water · Beichen Li " src=
-       "https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=95fed0bd869e4f3799890e0106c136e7&theme=light&heading=true&legend=true&scroll=false&center=-73.98848789283862,40.751923269817645&scale=288895.277144" ></iframe>
-      <figcaption>
-       Figure 1. Baseline annual water stress for the Aqueduct 4.0 polygon containing Bobst Library. The polygon has a water-stress value of 0.06, classified as Low (<10%), and covers 57.93 km². 
-       Source: Aqueduct 4.0, World Resources Institute; baseline period 1979–2019; data vintage April 2023; CC BY 4.0.
-      </figcaption>
-    </figure> 
 
    <figure>
-  <img src="Week5_map.png"
+  <img src="week6_washington_square_park_change.png"
        alt="Layout of Figure 1. In case the interactive map does not show up."> 
   <figcaption>Figure 2. Baseline annual water stress for the Aqueduct 4.0 polygon containing Bobst Library. 
 </figcaption>
  </figure>
        <!-- Then: greenness chart -->
 <figure>
-  <img src="Week5_MERIT_hydro.png"
+  <img src="week6_liberty_state_park_change.png"
        alt="Global Watersheds map showing a 2-square-kilometre catchment around Bobst Library generated with MERIT-Hydro at higher precision. The modeled boundary covers part of Lower Manhattan, the outlet is near 40.741, −74.008, and no river reaches or snapped-to-river marker were found within the catchment."> 
   <figcaption>Figure 3. Watershed delineations for Bobst Library generated with Global Watersheds in October 2026. MERIT-Hydro at higher precision returned a 2 km² catchment
 </figcaption>
@@ -108,39 +91,19 @@
 
     <h2>What I found</h2>
     <p>
-    Expectation: In Part 0, I predicted that the water would directly enter the drainage system under Washington Square Park and that the water would end up in the Hudson River. 
-    For the tap water, I predicted that it came from the Hudson River. However, NYC DEP says that the city’s supply comes from upstate reservoirs (about 100 miles away) in the Catskill, Delaware, and Croton systems, often as a blend; it cannot identify Bobst’s exact source from that general statement.
-</p>
-
-<p> 
-    The boundary: At Bobst Library, I first applied MERIT-Hydro data with lower precision, but the system automatically shifted to higher precision. I repeated this multiple times and zoomed out the extent, but the system constantly generated the watershed with higher precision. 
-    The higher precision generated a 2 km² delineation with a reported outlet near 40.741, −74.008. The requested coordinate was 40.729716, −73.996762, so the reported outlet is approximately 1.6 km away, calculated from coordinates rounded by the app. 
-    However, no river was found in the watershed because the watershed is relatively small and both the Hudson River and the East River are excluded.
-    Secondly, I adopted the HydroSHEDS (2013) model associated with higher precision, which generated a 59 km² delineation with a reported outlet near 40.73, −73.997, located at Wards Island Park on Randall’s Island. These two answers differed by 29 times.
-    Thirdly, I applied USGS, but the system returned the message, “Sorry, could not get the watershed boundary,” which is because USGS hydrography is built around gauged stream reaches, and the middle of Manhattan does not contain one.
-</p> 
-
-<p> 
-    The unit: The Aqueduct record I used for Bobst Library reports baseline annual water stress of 0.06, classified as Low (&lt;10%), for a displayed polygon of 57.93 km² (Pfafstetter ID 731300). This is an estimate of withdrawals relative to available renewable water at the sub-basin scale, not a measurement of water inside Bobst. 
-    Bobst Library has an area of 39,500 m² = 0.0395 km², so the displayed polygon is 57.93 ÷ 0.0395 ≈ 1,467 times the building’s area. Therefore, the ratio is approximately 1,467:1, or the building is about 0.0682% of the polygon. 
-    Because the nearby New Jersey polygon has a different ID (731501), those two records alone do not suggest that Bobst’s basin was split at the state border.
-    To compare untreated connected water and unimproved water, I chose the Mississippi–Missouri Basin, Montana, where the city of Bozeman is located. It returned an untreated connected water value of 0.26, classified as Low (&lt;10%), and an unimproved/no drinking water value of 0.02, which is exactly the same value as that of the Manhattan basin.
-</p> 
-
-<p>
-    The crossing: According to NYC DEP, New York City’s drinking-water supply network mainly relies on water conveyed from the upstate reservoir systems toward Manhattan and Bobst (mainly from north to south), crossing the local surface-drainage boundaries shown by the watershed tool. 
-    I found this in NYC DEP’s drinking-water FAQ and water-supply description. The sources establish the direction and the citywide systems, but do not specify which reservoir supplies Bobst at a particular moment; DEP says the mix can change.
+   Around Washington Square Park, the map remains almost entirely red, or Built Area, in both 2017 and 2025. Across the displayed extent, Trees decrease by 0.1% while Built Area increases by 0.1%. 
+   In particular, the Paulson Center site remains Built Area even though construction began in 2016 and the completed building opened in 2023. I therefore suspect that the site underwent substantial physical redevelopment, but the map cannot show it because both the construction site and completed building belong to the same broad class. 
+   In my secondary comparison, Liberty State Park presents a more visible contrast: much of the park changes from green Trees in 2017 to beige Rangeland in 2025. Across that displayed extent, Water decreases by 0.1%, Trees decrease by 1.0%, Built Area increases by 0.6%, and Rangeland increases by 0.6%. 
+   However, these values show a change in classification and do not suggest why it occurred or whether the vegetation actually changed to the same extent.
 </p>
     
      
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        I am using the delineated boundary around Bobst Library to stand for where the site’s water actually goes and comes from, and it might fail because the model does not represent New York City’s pipes, tunnels, and aqueducts: it estimates where rain falling on Bobst’s roof would drain across the surface, while the building’s tap water is transported from upstate reservoirs. 
-        I am also using the basin’s baseline water stress to stand for whether water at Bobst is adequate, and it might fail because the index measures water volume across a 57.93 km² polygon—about 1,467 times the area of Bobst—while counting water as available without showing whether it is locally accessible, treated, or usable. 
-        The delineated boundary is the more dangerous proxy in this entry because its precise outline can easily be mistaken for Bobst’s complete water system, even though it excludes the infrastructure that actually supplies the building.  Also, the watershed does not show where does the water type. For instance, NYC gets drink water from upstate resvoir including Catskill. 
-        Jersey City receives its potable water from the Rockaway River, a tributary of the Passaic River while Bozeman relies on snowpack for its water supply, with 80% coming from snowmelt in the Gallatin Range. However, the watershed does not differenciate the water source. 
-      </p>
+        I am using the Sentinel-2 land-cover classes to stand for physical redevelopment around Washington Square Park and Liberty State Park, and it might fail because the classifier’s fixed class boundaries place urban parks, yards, groves, construction sites, and completed buildings within the same broad Built Area class. 
+        This mechanism explains why the Paulson Center remains red in both 2017 and 2025 despite its transformation from a construction site into a completed building. In this case, the classification could be more misleading than the Week 4 vegetation index: 
+        the index might misrepresent how green a place is, but the classifier can erase the distinction between a park and the surrounding city altogether. The change panel also compares the total number of pixels in each class across the visible extent rather than matching pixels individually, so opposite transitions can cancel each other out. Therefore, it cannot demonstrate that specific pixels at Liberty State Park changed directly from Trees to Rangeland, nor can it identify renovation, park management, or other causes of the apparent change.
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
