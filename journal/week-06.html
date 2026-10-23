@@ -42,31 +42,23 @@
 
     <h2>The question</h2>
     <p>
-    What is the watershed around Bobst Library, New York City, actually shaped by, and how do connectivity, adjacency, and proximity appear in its delineated boundaries, scale, and water-stress pattern?
+    How has the land cover patterns around Washington Square Park changed between 2017 and 2025, and what forms of change are excluded by the classification?
     </p>
 
     <h2>The data</h2>
     <p>
-    I used the Global Watersheds application to delineate the surface catchment around Bobst Library. The primary delineation used MERIT-Hydro (2021) at higher precision, based on a global hydrography grid with a spatial resolution of 90 metres near the equator. 
-    Catchment area is reported in square kilometres, while the outlet is recorded in latitude and longitude. MERIT-Hydro is available under either the CC BY-NC 4.0 or ODbL 1.0 licence. I also used HydroSHEDS (2013) to test whether changing the underlying dataset altered the result. 
-    For water stress, I used the Baseline Annual and Baseline Monthly layers from WRI Aqueduct 4.0 Water Risk, accessed through ArcGIS Living Atlas. The index uses HydroBASINS Level 6 sub-basins as its hydrological unit. 
-    Baseline water stress is a unitless ratio of water withdrawals to available renewable water supply, while polygon area is reported in square kilometres. The data have a baseline period of 1979–2019 and a data vintage of April 2023, 
-    so the values describe a period that ended seven years before this analysis. 
-    The layer is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) and credited to Aqueduct 4.0, World Resources Institute.
+    I used the Esri and Impact Observatory Sentinel-2 10m Land Use/Land Cover Time Series for 2017 and 2025. The annual maps classify each 10 m pixel into one of nine classes (Water, Trees, Flooded Vegetation, Crops, Built Area, Bare Ground, Snow/Ice, Clouds, Rangeland). 
+    The layer is provided under the Esri Master License Agreement, while its source land-cover data are licensed under CC BY 4.0. 
+    This resolution means that paths, individual trees, planting beds, and other features smaller than approximately 100 square metres may not be represented separately.
 
      
     </p>
 
     <h2>The method</h2>
     <p>
-    I entered the Bobst Library coordinates, 40.729716, −73.996762, into Global Watersheds and delineated the catchment using MERIT-Hydro at higher precision. This setting used the approximately 90 m MERIT-Hydro grid to refine the watershed around the requested outlet. 
-    The application returned a catchment of 2 km² and moved the outlet to approximately 40.741, −74.008, about 1.6 km from the requested point. Because the application found no river reaches inside this small urban catchment, it did not display a separate snapped-to-river marker. 
-    I then changed the source dataset to HydroSHEDS as a sensitivity test; it returned a much larger catchment of 59 km², showing that the delineated boundary was highly sensitive to the dataset used.
-    In ArcGIS Map Viewer, I selected the Aqueduct 4.0 polygon containing Bobst Library and recorded its baseline annual water-stress value, class, and area. The polygon had a water-stress value of 0.06, classified as Low (<10%), and an area of 57.93 km². 
-    I converted Bobst Library’s stated area of 39,500 m² to 0.0395 km² and divided the Aqueduct polygon area by the building area. 
-    Finally, I switched from the annual layer to the monthly layer and identified April as the lowest-stress month (0.03) and October as the highest (0.0877).
-
-
+    I selected 2017 and 2025 because they are the earliest and latest years available in the Sentinel-2 land-cover series and bracket the construction of NYU’s Paulson Center near Washington Square Park. 
+    Construction began in 2016, and the building officially opened in January 2023. Comparing 2017 with 2025 therefore tests whether the classifier captured the transformation from an active construction site to a completed large-scale building.
+    I used Swipe mode to compare 2017 and 2025 while holding the map extent, scale, rendering, and land-cover product constant. Both sides use the same nine classes and colors. I selected the 1:1 option so both years were displayed at the native resolution of 1 px:10 m.
 
     </p>
        
