@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 06 · Beichen Li</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beichen Li</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 06 · October 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1> Land cover, then and now </h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+    How has the land cover patterns around Washington Square Park changed between 2017 and 2025, and what forms of change are excluded by the classification?
+    </p>
+
+    <h2>The data</h2>
+    <p>
+    I used the Esri and Impact Observatory Sentinel-2 10m Land Use/Land Cover Time Series for 2017 and 2025. The annual maps classify each 10 m pixel into one of nine classes (Water, Trees, Flooded Vegetation, Crops, Built Area, Bare Ground, Snow/Ice, Clouds, Rangeland). 
+    The layer is provided under the Esri Master License Agreement, while its source land-cover data are licensed under CC BY 4.0. 
+    This resolution means that paths, individual trees, planting beds, and other features smaller than approximately 100 square metres may not be represented separately.
+
+     
+    </p>
+
+    <h2>The method</h2>
+    <p>
+    I selected 2017 and 2025 because they are the earliest and latest years available in the Sentinel-2 land-cover series and bracket the construction of NYU’s Paulson Center near Washington Square Park. 
+    Construction began in 2016, and the building officially opened in January 2023. Comparing 2017 with 2025 therefore tests whether the classifier captured the transformation from an active construction site to a completed large-scale building.
+    I used Swipe mode to compare 2017 and 2025 while holding the map extent, scale, rendering, and land-cover product constant. Both sides use the same nine classes and colors. I selected the 1:1 option so both years were displayed at the native resolution of 1 px:10 m.
+    I treated Washington Sqaure Park as my primary site, and Liberty Sqaure Park as my secondary site, which witnessed relatively more substantial change, for comparison purpose. 
+    I also tested 2021 as a third date while keeping the extent, scale, rendering, and land-cover product unchanged. 
+       
+     <h2>The evidence</h2>
+
+   <figure>
+  <img src="week6_washington_square_park_change.png"
+       alt="Swipe comparison of land cover around Washington Square Park and NYU’s Paulson Center in 2017 and 2025 at 10 m resolution."> 
+  <figcaption> Figure 1. Land-cover comparison around Washington Square Park and NYU’s Paulson Center between 2017 and 2025, displayed at the same extent and the product’s native 10 m resolution. 
+               The Paulson Center site remains classified as Built Area in both years despite its physical redevelopment. Change percentages describe the entire displayed extent rather than the park or building site alone. 
+               Source: Esri and Impact Observatory, Sentinel-2 10m Land Use/Land Cover Time Series; source data licensed under CC BY 4.0.
+</figcaption>
+ </figure>
+         <p>
+  <a href="https://livingatlas.arcgis.com/landcoverexplorer/#mapCenter=-73.99815%2C40.73041%2C13.95&mode=swipe&timeExtent=2017%2C2025"
+     target="_blank" rel="noopener">
+    Open the reproducible 2017–2025 Washington Square Park comparison
+  </a>
+</p>
+       <!-- Then: greenness chart -->
+<figure>
+  <img src="week6_liberty_state_park_change.png"
+       alt="Swipe comparison of Liberty State Park’s land-cover classifications in 2017 and 2025 at 10 m resolution."> 
+  <figcaption> Land-cover comparison of Liberty State Park and its surroundings between 2017 and 2025, displayed at the same extent and the product’s native 10 m resolution. 
+               The swipe reveals a substantial difference between areas classified as Trees in 2017 and Rangeland in 2025. This is a classification difference rather than proof of a direct pixel-by-pixel transition or its cause. 
+               Source: Esri and Impact Observatory, Sentinel-2 10m Land Use/Land Cover Time Series; source data licensed under CC BY 4.0. 
+</figcaption>
+</figure>
+
+<p>
+  <a href="https://livingatlas.arcgis.com/landcoverexplorer/#mapCenter=-74.05049%2C40.70413%2C13.95&mode=swipe&timeExtent=2017%2C2025"
+     target="_blank" rel="noopener">
+    Open the reproducible 2017–2025 Liberty State Park comparison
+  </a>
+</p>
+
+
+    <h2>What I found</h2>
+    <p>
+   Around Washington Square Park, the map remains almost entirely red, or Built Area, in both 2017 and 2025. Across the displayed extent, Trees decrease by 0.1% while Built Area increases by 0.1%. 
+   In particular, the Paulson Center site remains Built Area even though construction began in 2016 and the completed building opened in 2023. I therefore suspect that the site underwent substantial physical redevelopment, but the map cannot show it because both the construction site and completed building belong to the same broad class. 
+   In my secondary comparison, Liberty State Park presents a more visible contrast: much of the park changes from green Trees in 2017 to beige Rangeland in 2025. Across that displayed extent, Water decreases by 0.1%, Trees decrease by 1.0%, Built Area increases by 0.6%, and Rangeland increases by 0.6%. 
+   However, these values show a change in classification and do not suggest why it occurred or whether the vegetation actually changed to the same extent. 
+   Based on the third-date test, Washington Square Park remained predominantly classified as Built Area across all three dates,  Liberty State Park also remained largely unchanged between 2017 and 2021 while substantial changes happened between 2021 and 2025,
+</p>
+    
+     
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+        I am using the Sentinel-2 land-cover classes to stand for physical redevelopment around Washington Square Park and Liberty State Park, and it might fail because the classifier’s fixed class boundaries place urban parks, yards, groves, construction sites, and completed buildings within the same broad Built Area class. 
+        This mechanism explains why the Paulson Center remains red in both 2017 and 2025 despite its transformation from a construction site into a completed building. In this case, the classification could be more misleading than the Week 4 vegetation index: 
+        the index might misrepresent how green a place is, but the classifier can erase the distinction between a park and the surrounding city altogether. The change panel also compares the total number of pixels in each class across the visible extent rather than matching pixels individually, so opposite transitions can cancel each other out. Therefore, it cannot demonstrate that specific pixels at Liberty State Park changed directly from Trees to Rangeland, nor can it identify renovation, park management, or other causes of the apparent change.
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Beichen Li · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
