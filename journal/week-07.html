@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 06 · Beichen Li</title>
+<title>Week 07 · Beichen Li</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -27,12 +27,12 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 06 · October 2026</p>
+    <p class="kicker">Week 07 · October 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1> Land cover, then and now </h1>
+    <h1> From a table to a map </h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -42,14 +42,18 @@
 
     <h2>The question</h2>
     <p>
-    How has the land cover patterns around Washington Square Park changed between 2017 and 2025, and what forms of change are excluded by the classification?
+    Where do U.S. export products go, and how do the scale and distribution of national trade data shape our understanding of economic activity across different places?
     </p>
 
     <h2>The data</h2>
     <p>
-    I used the Esri and Impact Observatory Sentinel-2 10m Land Use/Land Cover Time Series for 2017 and 2025. The annual maps classify each 10 m pixel into one of nine classes (Water, Trees, Flooded Vegetation, Crops, Built Area, Bare Ground, Snow/Ice, Clouds, Rangeland). 
-    The layer is provided under the Esri Master License Agreement, while its source land-cover data are licensed under CC BY 4.0. 
-    This resolution means that paths, individual trees, planting beds, and other features smaller than approximately 100 square metres may not be represented separately.
+   The export table comes from the Atlas of Economic Complexity, produced by the Growth Lab at Harvard University. I used the United States’ 2024 goods exports by destination, based on UN Comtrade data and classified using HS92. 
+   The values are reported in current U.S. dollars. The table contains 221 destination rows and includes the country names, exports_usd, and export_share.
+   The usage and Citation statement says that the Atlas is a freely available public resource and that reuse and adaptation are encouraged when users appropriately cite the Atlas and its underlying data sources. 
+   The Atlas also explains that its figures are reconciled estimates based on exporter and importer reports, rather than untouched customs records. The files were based on Comtrade data last retrieved on December 15, 2025.
+
+   The boundary layer comes from Natural Earth’s Admin 0 – Countries, 1:110m, version 5.1.1 dataset. It contains 177 country polygons. Natural Earth describes this dataset as public domain, meaning that it can be reused, adapted, and republished without requesting permission or paying a licence fee. 
+   The boundary file represents de facto boundaries according to who controls the territory, so the polygons reflect a particular cartographic and political choice.
 
      
     </p>
