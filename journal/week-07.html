@@ -50,7 +50,7 @@
    The export table comes from the Atlas of Economic Complexity, produced by the Growth Lab at Harvard University. I used the United States’ 2024 goods exports by destination, based on UN Comtrade data and classified using HS92. 
    The values are reported in current U.S. dollars. The table contains 221 destination rows and includes the country names, exports_usd, and export_share.
    The Usage and Citation statement says that the Atlas is a freely available public resource and that reuse and adaptation are encouraged when users appropriately cite the Atlas and its underlying data sources. 
-   The Atlas also explains that its figures are reconciled estimates based on exporter and importer reports, rather than untouched customs records. The files were based on Comtrade data last retrieved on December 15, 2025.
+   The files were based on Comtrade data last retrieved on December 15, 2025.
 
    The boundary layer comes from Natural Earth’s Admin 0 – Countries, 1:110m, version 5.1.1 dataset. It contains 177 country polygons. Natural Earth describes this dataset as public domain, meaning that it can be reused, adapted, and republished without requesting permission or paying a licence fee. 
    The boundary file represents de facto boundaries according to who controls the territory, so the polygons reflect a particular cartographic and political choice.
@@ -67,14 +67,17 @@
     I then created a joined view layer by adding the U.S. export table to the Natural Earth boundary layer.
 
     The join matched the ISO_A3_EH field in the Natural Earth boundary layer with the iso3 field in the export table. I used iso codes rather than country names because iso codes provide more straightforward and stable identifiers. 
-    Country names can differ between datasets because of spelling, punctuation, political naming conventions, or long and short forms. The relationship was set to one-to-one, since each destination country should have one row in the export table. 
+    Country names can differ between datasets because of spelling, political naming conventions, or long and short forms. The relationship was set to one-to-one, since each destination country should have one row in the export table. 
     I selected a left join, which preserved every polygon in the Natural Earth layer, including polygons without a matching export record.
 
     After creating the joined view, I audited the result rather than assuming that the map was complete. I filtered the joined attribute table for records where exports_usd was blank and ADMIN was not blank. 
     These records represent Natural Earth polygons that did not find a matching U.S. export row. A blank value does not mean that the country had no trade; it means that the join did not attach a value from the table. 
 
-    Finally, I styled the exports_usd field using Counts and Amounts (Color) to create the choropleth. I also added a separate point layer containing three selected major port cities, which are New York City, Los Angeles and Chicago. 
+    Subsequently, I styled the exports_usd field using Counts and Amounts (Color) to create the choropleth. I also added a separate point layer containing three selected major port cities, which are New York City, Los Angeles and Chicago. 
     The joined layer shows national export values by destination, while the point layer shows transport locations. Comparing them makes the difference between national statistical scale and physical place visible.
+
+    Finally, I then created a separate CSV point file with three records: the Port of Los Angeles, the Port of Houston, and the Port of New York and New Jersey. The file contains the fields name, latitude, and longitude. The coordinates were obtained from Google Maps and checked against the ArcGIS basemap after uploading the file.
+    Each record included a name, latitude, and longitude. I added this file to ArcGIS Online through Add → Add layer from file and selected Latitude and longitude as the location type. ArcGIS Online converted the coordinates into point features and displayed them on top of the joined boundary layer. 
        
      <h2>The evidence</h2>
 
@@ -136,9 +139,15 @@
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        I am using the Sentinel-2 land-cover classes to stand for physical redevelopment around Washington Square Park and Liberty State Park, and it might fail because the classifier’s fixed class boundaries place urban parks, yards, groves, construction sites, and completed buildings within the same broad Built Area class. 
-        This mechanism explains why the Paulson Center remains red in both 2017 and 2025 despite its transformation from a construction site into a completed building. In this case, the classification could be more misleading than the Week 4 vegetation index: 
-        the index might misrepresent how green a place is, but the classifier can erase the distinction between a park and the surrounding city altogether. The change panel also compares the total number of pixels in each class across the visible extent rather than matching pixels individually, so opposite transitions can cancel each other out. Therefore, it cannot demonstrate that specific pixels at Liberty State Park changed directly from Trees to Rangeland, nor can it identify renovation, park management, or other causes of the apparent change.
+        First, this map does not show the exact places where U.S. exports are produced. The choropleth assigns one national export value to each destination country, so it can make the entire country appear to share the same economic relationship. 
+        In reality, exports are concentrated in certain locations including  farms, factories, offices, energy facilities,  and ports. The three points on the map show three major ports in the US and do not represent the full transportation system.
+
+        Secondly, he map also does not show the complete value of U.S. exports. The destination table primarily represents goods trade, while the product view includes service categories such as business services. Business services were the largest category in the product view, but they cannot be represented accurately as a single physical export site. 
+        The map therefore omits important parts of the U.S. economy, especially activities concentrated in offices, financial institutions, and multinational companies.
+
+        Furthermore, The Atlas values are reconciled estimates rather than raw customs records. The numbers also do not show who receives the income from trade, where profits go, how workers are paid, or which companies control the production and distribution networks.
+
+        Ultimately, the map does not establish that one factor caused exports to rise after the pandemic. U.S. exports were higher in 2021, 2022, and 2023 than in 2019, but this change could reflect several factors, including demand, commodity prices, supply-chain conditions, exchange rates, international relations etc. The map can describe the distribution of reported export values, but it cannot identify a single cause.
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
