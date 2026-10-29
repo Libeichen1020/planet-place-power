@@ -55,31 +55,34 @@
     <p>
    The boundary layer comes from Natural Earth’s Admin 0 – Countries, 1:110m, version 5.1.1 dataset. It contains 177 country polygons. Natural Earth describes this dataset as public domain, meaning that it can be reused, adapted, and republished without requesting permission or paying a licence fee. 
    The boundary file represents de facto boundaries according to who controls the territory, so the polygons reflect a particular cartographic and political choice.
-
-     
-    </p>
+   </p>
 
     <h2>The method</h2>
     <p>
     I first cleaned the Atlas export table before uploading it to ArcGIS Online. I added a new column called iso3, which stores a three-letter country code for each corresponding country. 
     I uploaded the CSV as a nonspatial table by selecting Location settings → None. This was important because the table contains country-level values but does not contain coordinates or its own geometry.
-
+    </p>
+    <p>
     I uploaded the Natural Earth boundary file as a hosted feature layer. The boundary layer was the target layer because it contained the country polygons that would remain in the final map. 
     I then created a joined view layer by adding the U.S. export table to the Natural Earth boundary layer.
-
+    </p>
+    <p>
     The join matched the ISO_A3_EH field in the Natural Earth boundary layer with the iso3 field in the export table. I used iso codes rather than country names because iso codes provide more straightforward and stable identifiers. 
     Country names can differ between datasets because of spelling, political naming conventions, or long and short forms. The relationship was set to one-to-one, since each destination country should have one row in the export table. 
     I selected a left join, which preserved every polygon in the Natural Earth layer, including polygons without a matching export record.
-
+    </p>
+    <p>
     After creating the joined view, I audited the result rather than assuming that the map was complete. I filtered the joined attribute table for records where exports_usd was blank and ADMIN was not blank. 
     These records represent Natural Earth polygons that did not find a matching U.S. export row. A blank value does not mean that the country had no trade; it means that the join did not attach a value from the table. 
-
+    </p> 
+    <p>
     Subsequently, I styled the exports_usd field using Counts and Amounts (Color) to create the choropleth. I also added a separate point layer containing three selected major port cities, which are New York City, Los Angeles and Chicago. 
     The joined layer shows national export values by destination, while the point layer shows transport locations. Comparing them makes the difference between national statistical scale and physical place visible.
-
+    </p>
+    <p>
     Finally, I then created a separate CSV point file with three records: the Port of Los Angeles, the Port of Houston, and the Port of New York and New Jersey. The file contains the fields name, latitude, and longitude. The coordinates were obtained from Google Maps and checked against the ArcGIS basemap after uploading the file.
     Each record included a name, latitude, and longitude. I added this file to ArcGIS Online through Add → Add layer from file and selected Latitude and longitude as the location type. ArcGIS Online converted the coordinates into point features and displayed them on top of the joined boundary layer. 
-       
+    </p>   
      <h2>The evidence</h2>
 
    <figure>
@@ -99,33 +102,41 @@
     I also expected soybeans to be the United States’ single largest export product because of the country’s extensive agricultural land, especially in states such as Iowa and Nebraska. However, the product view shows business services, accounted for approximately $403 billion, as the largest category. 
     This is not a physical product produced in one clearly defined location. It is more likely connected to offices, firms, financial institutions, and multinational corporate networks concentrated in major metropolitan areas. 
     Soybeans are the largest agricultural export in the table, with a value of approximately $23.8 billion, but they represent a minimal proportion of the total exports. 
-
+    </p>
+    <p>
     Furthermore, I expected U.S. exports to decline after the pandemic. However, exports in 2021, 2022, and 2023 were higher than in 2019. This suggests that export performance is shaped by multiple factors, including demand, commodity prices, supply-chain conditions, exchange rates, and trade relationships. 
     No single factor can fully explain changes in national exports.
-
+    </p> 
+    <p>
     The join: 
     The join produced 7 boundary polygons without a matching trade row.  Those 7 polygons without a matching row are: Western Sahara, United States of America, Puerto Rico, Antarctica, Northern Cyprus, Somaliland, and Kosovo. 
     In the opposite direction, every row in the U.S. trade table matched a Natural Earth polygon.
-
+    </p>
+    <p>
     These seven blank export values do not mean that these places had no trade. The United States of America is blank because the table records U.S. exports to destination countries, so the exporting country itself is not expected to appear as a destination. 
     The remaining blank records reflect differences in the coverage and identifiers of the two datasets. Northern Cyprus, Somaliland, and Kosovo have -99 in the ISO_A3_EH field, indicating that Natural Earth does not provide a standard ISO3 code for these polygons in this field. Western Sahara, Puerto Rico, and Antarctica have codes in the boundary layer, but they do not appear as separate destination rows in this U.S. trade table.
-
+    </p>
+    <p>
     Connection: 
     The connection between the United States’ physical geography and its export basket therefore holds only partially. Agricultural land and climate help support soybean production, but the largest export category is business services, whose value is concentrated in offices and corporate networks which are less affected by climate and independent from certain regions. 
     The export data also show that the final destination of U.S. goods does not necessarily identify where they are consumed. Mexico and Canada may function as both markets and stages in integrated North American production and distribution systems. This demonstrates how the scale and distribution of national trade data can obscure the specific places where economic value is produced, processed, and captured.
-     
+    </p>
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
         First, this map does not show the exact places where U.S. exports are produced. The choropleth assigns one national export value to each destination country, so it can make the entire country appear to share the same economic relationship. 
         In reality, exports are concentrated in certain locations including  farms, factories, offices, energy facilities,  and ports. The three points on the map show three major ports in the US and do not represent the full transportation system.
-
+      </p>
+       <p>
         Secondly, he map also does not show the complete value of U.S. exports. The destination table primarily represents goods trade, while the product view includes service categories such as business services. Business services were the largest category in the product view, but they cannot be represented accurately as a single physical export site. 
         The map therefore omits important parts of the U.S. economy, especially activities concentrated in offices, financial institutions, and multinational companies.
-
+        </p> 
+         <p>
         Furthermore, The Atlas values are reconciled estimates rather than raw customs records. The numbers also do not show who receives the income from trade, where profits go, how workers are paid, or which companies control the production and distribution networks.
-
-        Ultimately, the map does not establish that one factor caused exports to rise after the pandemic. U.S. exports were higher in 2021, 2022, and 2023 than in 2019, but this change could reflect several factors, including demand, commodity prices, supply-chain conditions, exchange rates, international relations etc. The map can describe the distribution of reported export values, but it cannot identify a single cause.
+        </p> 
+         <p>
+        Ultimately, the map does not establish that one factor caused exports to rise after the pandemic. U.S. exports were higher in 2021, 2022, and 2023 than in 2019, but this change could reflect several factors, including demand, commodity prices, supply-chain conditions, exchange rates, international relations etc. The map can describe the distribution of reported export values, but it cannot identify a single cause. 
+         </p>
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
