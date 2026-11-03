@@ -42,29 +42,43 @@
 
     <h2>The question</h2>
     <p>
-    Where do U.S. export products go, and how do the scale and distribution of national trade data shape our understanding of economic activity across different places?
+   I wanted to understand the digital infrastructure surrounding my New York City site: what digital and telecommunications infrastructure is nearby, which wider network the site might connect to, and whose jurisdiction governs the flows entering and leaving it?
     </p>
 
     <h2>The data</h2>
     <p>
-   The export table comes from the Atlas of Economic Complexity, produced by the Growth Lab at Harvard University. I used the United States’ 2024 goods exports by destination, based on UN Comtrade data and classified using HS92. 
-   The values are reported in current U.S. dollars. The table contains 221 destination rows and includes the country names, exports_usd, and export_share.
-   The Usage and Citation statement says that the Atlas is a freely available public resource and that reuse and adaptation are encouraged when users appropriately cite the Atlas and its underlying data sources. 
-   The files were based on Comtrade data last retrieved on December 15, 2025.
+   I used four sources, all accessed on 3 November 2026.
     </p>
     <p>
-   The boundary layer comes from Natural Earth’s Admin 0 – Countries, 1:110m, version 5.1.1 dataset. It contains 177 country polygons. Natural Earth describes this dataset as public domain, meaning that it can be reused, adapted, and republished without requesting permission or paying a licence fee. 
-   The boundary file represents de facto boundaries according to who controls the territory, so the polygons reflect a particular cartographic and political choice.
+   First, I accessed OpenStreetMap data through Overpass Turbo. The data was made by OpenStreetMap contributors and is licensed under the Open Database License (ODbL) 1.0. 
+   It could be republished on a public webpage provided that OpenStreetMap and its contributors are credited, the ODbL is identified, and any publicly distributed derivative database follows the share-alike requirement.
+   </p>
+   <p>
+   Second, I used Taginfo, OpenStreetMap’s tag-statistics service, to examine worldwide tag counts. Taginfo’s data is also licensed under the ODbL and could be publicly republished with the required OpenStreetMap attribution and licence notice. 
+   </p>
+   <p> 
+   Third, I consulted TeleGeography’s Submarine Cable Map, made by TeleGeography, to identify the Island Park and Northport cable landing points. References and screenshots of the map are available under CC BY-SA 4.0 when TeleGeography is credited, 
+   but the interactive map cannot be embedded and its underlying database is restricted to paying subscribers. I therefore manually transcribed and cited two publicly displayed coordinate pairs through Submarine Networks website rather than downloading or redistributing the database.
+   </p> 
+   <p>
+   Finally, I referred to Data Center Map, made by Data Center Map ApS, to compare commercial data-centre listings near New York City. Its website terms do not provide a clear open-data licence or clear permission to reproduce its listings publicly. 
+   Therefore, the terms were unclear, so I linked to the source rather than reproducing its content.
    </p>
 
     <h2>The method</h2>
     <p>
-    I first cleaned the Atlas export table before uploading it to ArcGIS Online. I added a new column called iso3, which stores a three-letter country code for each corresponding country. 
-    I uploaded the CSV as a nonspatial table by selecting Location settings → None. This was important because the table contains country-level values but does not contain coordinates or its own geometry.
+    The query: I ran the telecom query first: "[out:json][timeout:60]; nwr["telecom"]({{bbox}}); out center;"
+    The predicate ["telecom"] selected every OpenStreetMap node, way or relation carrying the telecom key, regardless of its value. The extent {{bbox}} limited the query to the area visible on my Overpass Turbo map. In words, the extent covered New York City and nearby parts of northern New Jersey and western Long Island.
     </p>
     <p>
-    I uploaded the Natural Earth boundary file as a hosted feature layer. The boundary layer was the target layer because it contained the country polygons that would remain in the final map. 
-    I then created a joined view layer by adding the U.S. export table to the Natural Earth boundary layer.
+    I then ran the following power query:
+"[out:json][timeout:60];
+(
+  nwr["power"="substation"]({{bbox}});
+  nwr["power"="tower"]({{bbox}});
+);
+out center;" 
+This query contained two predicates: ["power"="substation"] selected mapped substations, while ["power"="tower"] selected electricity transmission towers. The parentheses combined the two results. The extent was again the visible New York City metropolitan bounding box. Both queries were answered by https://overpass-api.de/api/ on 3 November 2026.
     </p>
     <p>
     The join matched the ISO_A3_EH field in the Natural Earth boundary layer with the iso3 field in the export table. I used iso codes rather than country names because iso codes provide more straightforward and stable identifiers. 
@@ -104,12 +118,11 @@
     <h2>What I found</h2>
     <p>
     Expectation: 
-    I expected China to be the largest destination for U.S. exports in 2024. However, the destination table shows that Mexico received the largest value, approximately $334 billion, followed closely by Canada at approximately $329 billion. 
-    China ranked third, receiving approximately $142 billion. This result shows that geographic proximity and regional economic integration with North America are more important to the distribution of U.S. exports than I initially expected.
-    I also expected soybeans to be the United States’ single largest export product because of the country’s extensive agricultural land, especially in states such as Iowa and Nebraska. However, the product view shows business services, accounted for approximately $403 billion, as the largest category. 
-    This is not a physical product produced in one clearly defined location. It is more likely connected to offices, firms, financial institutions, and multinational corporate networks concentrated in major metropolitan areas. 
-    Soybeans are the largest agricultural export in the table, with a value of approximately $23.8 billion, but they represent a minimal proportion of the total exports. 
+    Two of my four predictions disagreed with the evidence. I correctly predicted that I could place a screenshot of TeleGeography’s Submarine Cable Map on my public journal page, although I had not anticipated that this permission applied only to a credited screenshot under CC BY-SA 4.0—not to embedding the interactive map or redistributing its underlying database. 
+    I also correctly predicted that I could publish an OpenStreetMap-derived map, provided that I credit OpenStreetMap and its contributors and identify the ODbL licence.
     </p>
+   <p>
+    Both of my numerical predictions were too high. I predicted that OpenStreetMap would contain 100 data centres in Shanghai, but the queries found four relevant records: two tagged telecom=data_center and two tagged building=data_center. I also predicted 1,000 cable landing stations worldwide, whereas Taginfo reported 60 objects tagged telecom=cable_landing_station when I checked it. 
     <p>
     Furthermore, I expected U.S. exports to decline after the pandemic. However, exports in 2021, 2022, and 2023 were higher than in 2019. This suggests that export performance is shaped by multiple factors, including demand, commodity prices, supply-chain conditions, exchange rates, and trade relationships. 
     No single factor can fully explain changes in national exports.
