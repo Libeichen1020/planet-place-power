@@ -81,9 +81,7 @@ out center;"
 This query contained two predicates: ["power"="substation"] selected mapped substations, while ["power"="tower"] selected electricity transmission towers. The parentheses combined the two results. The extent was again the visible New York City metropolitan bounding box. Both queries were answered by https://overpass-api.de/api/ on 3 November 2026.
     </p>
     <p>
-    The join matched the ISO_A3_EH field in the Natural Earth boundary layer with the iso3 field in the export table. I used iso codes rather than country names because iso codes provide more straightforward and stable identifiers. 
-    Country names can differ between datasets because of spelling, political naming conventions, or long and short forms. The relationship was set to one-to-one, since each destination country should have one row in the export table. 
-    I selected a left join, which preserved every polygon in the Natural Earth layer, including polygons without a matching export record.
+    My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were general objects carrying a telecom tag, not 49 identified submarine-cable landing stations. The result I saved recorded the number of objects but not all their individual names. Therefore, I cannot claim that the contributors knew each facility’s operator, function or relationship to the submarine-cable network. Where an object lacks a specific name, the contributor may have recognised only that it was telecommunications infrastructure.
     </p>
     <p>
     After creating the joined view, I audited the result rather than assuming that the map was complete. I filtered the joined attribute table for records where exports_usd was blank and ADMIN was not blank. 
