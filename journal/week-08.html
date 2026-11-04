@@ -27,7 +27,7 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 07 · October 2026</p>
+    <p class="kicker">Week 08 · November 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
@@ -63,7 +63,26 @@
    <p>
    Finally, I referred to Data Center Map, made by Data Center Map ApS, to compare commercial data-centre listings near New York City. Its website terms do not provide a clear open-data licence or clear permission to reproduce its listings publicly. 
    Therefore, the terms were unclear, so I linked to the source rather than reproducing its content.
-   </p>
+   </p> 
+    <p>
+    Republication:  
+    </p> 
+    <p>
+    OpenStreetMap: The data is available under the Open Database License. I am “free to copy, distribute, transmit and adapt” it as long as I credit OpenStreetMap and its contributors. I may publish my map publicly with visible attribution and an ODbL link; any distributed derivative database must follow the share-alike requirement.
+    </p> 
+    <p> 
+    Overpass Turbo: Overpass returned OpenStreetMap data rather than a separately licensed infrastructure database. The exported response states that the included data is from OpenStreetMap and “is made available under ODbL.” I could republish the resulting map with the required OpenStreetMap attribution.
+    </p> 
+    <p> 
+    Taginfo: Taginfo states that “the data available through taginfo is licensed under ODbL, the same license as the OpenStreetMap data.” Its statistics may therefore be republished with OpenStreetMap attribution and identification of the ODbL.
+    </p> 
+    <p>
+    TeleGeography Submarine Cable Map: A reference to the map or a screenshot is available under CC BY-SA 4.0, provided that TeleGeography is credited. However, the interactive map “is not an embeddable resource,” and access to the underlying database is restricted to paying subscribers. 
+    I therefore cited the map and manually transcribed two displayed coordinate pairs rather than embedding the map or redistributing its database.
+    </p>
+    <p>
+    Data Center Map: I could not determine a clear open licence or clear permission to reproduce its listings on my public journal. The terms are unclear, so I linked rather than reproduced.
+    </p>
 
     <h2>The method</h2>
     <p>
@@ -71,31 +90,16 @@
     The predicate ["telecom"] selected every OpenStreetMap node, way or relation carrying the telecom key, regardless of its value. The extent {{bbox}} limited the query to the area visible on my Overpass Turbo map. In words, the extent covered New York City and nearby parts of northern New Jersey and western Long Island.
     </p>
     <p>
-    I then ran the following power query:
-"[out:json][timeout:60];
-(
-  nwr["power"="substation"]({{bbox}});
-  nwr["power"="tower"]({{bbox}});
-);
-out center;" 
-This query contained two predicates: ["power"="substation"] selected mapped substations, while ["power"="tower"] selected electricity transmission towers. The parentheses combined the two results. The extent was again the visible New York City metropolitan bounding box. Both queries were answered by https://overpass-api.de/api/ on 3 November 2026.
+    I then ran the following power query: "[out:json][timeout:60];(nwr["power"="substation"]({{bbox}}); nwr["power"="tower"]({{bbox}}););out center;" 
+    This query contained two predicates: ["power"="substation"] selected mapped substations, while ["power"="tower"] selected electricity transmission towers. The parentheses combined the two results. The extent was again the visible New York City metropolitan bounding box. Both queries were answered by https://overpass-api.de/api/ on 3 November 2026.
     </p>
     <p>
-    My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were general objects carrying a telecom tag, not 49 identified submarine-cable landing stations. The result I saved recorded the number of objects but not all their individual names. Therefore, I cannot claim that the contributors knew each facility’s operator, function or relationship to the submarine-cable network. Where an object lacks a specific name, the contributor may have recognised only that it was telecommunications infrastructure.
+    My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were general objects carrying a telecom tag, not 49 identified submarine-cable landing stations. The result I saved recorded the number of objects but not all their individual names. 
+    Therefore, I cannot claim that the contributors knew each facility’s operator, function or relationship to the submarine-cable network. Where an object lacks a specific name, the contributor may have recognised only that it was telecommunications infrastructure.
     </p>
-    <p>
-    After creating the joined view, I audited the result rather than assuming that the map was complete. I filtered the joined attribute table for records where exports_usd was blank and ADMIN was not blank. 
-    These records represent Natural Earth polygons that did not find a matching U.S. export row. A blank value does not mean that the country had no trade; it means that the join did not attach a value from the table. 
-    </p> 
-    <p>
-    Subsequently, I styled the exports_usd field using Counts and Amounts (Color) to create the choropleth. I also added a separate point layer containing three selected major port cities, which are New York City, Los Angeles and Chicago. 
-    The joined layer shows national export values by destination, while the point layer shows transport locations. Comparing them makes the difference between national statistical scale and physical place visible.
-    </p>
-    <p>
-    Finally, I then created a separate CSV point file with three records: the Port of Los Angeles, the Port of Houston, and the Port of New York and New Jersey. The file contains the fields name, latitude, and longitude. The coordinates were obtained from Google Maps and checked against the ArcGIS basemap after uploading the file.
-    Each record included a name, latitude, and longitude. I added this file to ArcGIS Online through Add → Add layer from file and selected Latitude and longitude as the location type. ArcGIS Online converted the coordinates into point features and displayed them on top of the joined boundary layer. 
-    </p>   
-     <h2>The evidence</h2>
+  
+    
+   <h2>The evidence</h2>
 
    <figure>
   <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 7 · From a Table to a Map · Beichen Li " src=
@@ -125,14 +129,14 @@ This query contained two predicates: ["power"="substation"] selected mapped subs
     Furthermore, I expected U.S. exports to decline after the pandemic. However, exports in 2021, 2022, and 2023 were higher than in 2019. This suggests that export performance is shaped by multiple factors, including demand, commodity prices, supply-chain conditions, exchange rates, and trade relationships. 
     No single factor can fully explain changes in national exports.
     </p> 
+   
     <p>
-    The join: 
-    The join produced 7 boundary polygons without a matching trade row.  Those 7 polygons without a matching row are: Western Sahara, United States of America, Puerto Rico, Antarctica, Northern Cyprus, Somaliland, and Kosovo. 
-    In the opposite direction, every row in the U.S. trade table matched a Natural Earth polygon.
+    The two absences, distinguished: My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were general objects carrying a telecom tag, not 49 identified submarine-cable landing stations. 
+    The result I saved recorded the number of objects but not all their individual names. Therefore, I cannot claim that the contributors knew each facility’s operator, function or relationship to the submarine-cable network. Where an object lacks a specific name, the contributor may have recognised only that it was telecommunications infrastructure.
     </p>
     <p>
-    These seven blank export values do not mean that these places had no trade. The United States of America is blank because the table records U.S. exports to destination countries, so the exporting country itself is not expected to appear as a destination. 
-    The remaining blank records reflect differences in the coverage and identifiers of the two datasets. Northern Cyprus, Somaliland, and Kosovo have -99 in the ISO_A3_EH field, indicating that Natural Earth does not provide a standard ISO3 code for these polygons in this field. Western Sahara, Puerto Rico, and Antarctica have codes in the boundary layer, but they do not appear as separate destination rows in this U.S. trade table.
+    The absence of an OpenStreetMap object explicitly identifying the nearby cable landing stations does not mean that no landing stations exist. TeleGeography identifies Island Park and Northport as cable landing locations. I can conclude that these facilities were absent from, differently tagged in, or not identifiable through my OSM query. 
+    However, I am not entitled to conclude that the physical facilities themselves are absent.
     </p>
     <p>
     Connection: 
