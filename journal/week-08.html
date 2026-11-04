@@ -121,12 +121,14 @@
     I also correctly predicted that I could publish an OpenStreetMap-derived map, provided that I credit OpenStreetMap and its contributors and identify the ODbL licence.
     </p>
    <p>
-    Both of my numerical predictions were too high. I predicted that OpenStreetMap would contain 100 data centres in Shanghai, but the queries found four relevant records: two tagged telecom=data_center and two tagged building=data_center. I also predicted 1,000 cable landing stations worldwide, whereas Taginfo reported 60 objects tagged telecom=cable_landing_station when I checked it. 
+    The results: Both of my numerical predictions were too high. I predicted that OpenStreetMap would contain 100 data centres in Shanghai, but the queries found four relevant records: two tagged telecom=data_center and two tagged building=data_center. I also predicted 1,000 cable landing stations worldwide, whereas Taginfo reported 60 objects tagged telecom=cable_landing_station when I checked it. 
+    
     <p>
-    Furthermore, I expected U.S. exports to decline after the pandemic. However, exports in 2021, 2022, and 2023 were higher than in 2019. This suggests that export performance is shaped by multiple factors, including demand, commodity prices, supply-chain conditions, exchange rates, and trade relationships. 
-    No single factor can fully explain changes in national exports.
+    Main findings: My OpenStreetMap telecom query displayed 49 telecom-tagged objects, while adding building=data_center increased the displayed result to 51, meaning that two additional data-centre buildings were captured by that predicate. In contrast, the commercial Data Center Map lists 55 data centres in New York City, showing that the choice of dataset and classification method largely affects the  amount of infrastructure indentified in the map. 
+    The power query returned 2,008 mapped substations and transmission towers, indicating a dense network across the New York City metropolitan extent. TeleGeography also identifies submarine-cable connections and the nearby Island Park and Northport landing points, although these two landing points are outside New York City adminstrative boundary. 
     </p> 
-   
+
+       
     <p>
     The two absences, distinguished: My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were general objects carrying a telecom tag, not 49 identified submarine-cable landing stations. 
     The result I saved recorded the number of objects but not all their individual names. Therefore, I cannot claim that the contributors knew each facility’s operator, function or relationship to the submarine-cable network. Where an object lacks a specific name, the contributor may have recognised only that it was telecommunications infrastructure.
@@ -136,26 +138,14 @@
     However, I am not entitled to conclude that the physical facilities themselves are absent.
     </p>
     <p>
-    Connection: 
-    The connection between the United States’ physical geography and its export basket therefore holds only partially. Agricultural land and climate help support soybean production, but the largest export category is business services, whose value is concentrated in offices and corporate networks which are less affected by climate and independent from certain regions. 
-    The export data also show that the final destination of U.S. goods does not necessarily identify where they are consumed. Mexico and Canada may function as both markets and stages in integrated North American production and distribution systems. This demonstrates how the scale and distribution of national trade data can obscure the specific places where economic value is produced, processed, and captured.
+    
     </p>
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        First, this map does not show the exact places where U.S. exports are produced. The choropleth assigns one national export value to each destination country, so it can make the entire country appear to share the same economic relationship. 
-        In reality, exports are concentrated in certain locations including  farms, factories, offices, energy facilities,  and ports. The three points on the map show three major ports in the US and do not represent the full transportation system.
+      I am using mapped substations and transmission towers to stand for the electricity network that a data centre in New York City might connect to, and it might fail because OpenStreetMap is built and maintained by a global community of contributors whose knowledge, access and mapping priorities might vary substantially. As a result, visible features such as overhead towers may be recorded more completely than underground cables or restricted facilities. Overhead towers are relatively easy to identify, while underground cables, restricted facilities and privately operated infrastructure may be missing. 
+      The map therefore does not suggest which grid or substation would actually supply a particular data centre. Similarly, the 55 Data Centers captured by Data Center Map do not reveal what is inside each facility, its electricity demand, its ownership, or whose data it stores. None of these results was verified through fieldwork, and the database counts may change over time.
       </p>
-       <p>
-        Secondly, he map also does not show the complete value of U.S. exports. The destination table primarily represents goods trade, while the product view includes service categories such as business services. Business services were the largest category in the product view, but they cannot be represented accurately as a single physical export site. 
-        The map therefore omits important parts of the U.S. economy, especially activities concentrated in offices, financial institutions, and multinational companies.
-        </p> 
-         <p>
-        Furthermore, The Atlas values are reconciled estimates rather than raw customs records. The numbers also do not show who receives the income from trade, where profits go, how workers are paid, or which companies control the production and distribution networks.
-        </p> 
-         <p>
-        Ultimately, the map does not establish that one factor caused exports to rise after the pandemic. U.S. exports were higher in 2021, 2022, and 2023 than in 2019, but this change could reflect several factors, including demand, commodity prices, supply-chain conditions, exchange rates, international relations etc. The map can describe the distribution of reported export values, but it cannot identify a single cause. 
-         </p>
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
