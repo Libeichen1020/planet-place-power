@@ -83,12 +83,11 @@
 
     <h2>The method</h2>
     <p>
-    The query: I ran the telecom query first: "[out:json][timeout:60]; nwr["telecom"]({{bbox}}); out center;"
-    The predicate ["telecom"] selected every OpenStreetMap node, way or relation carrying the telecom key, regardless of its value. The extent {{bbox}} limited the query to the area visible on my Overpass Turbo map. In words, the extent covered New York City and nearby parts of northern New Jersey and western Long Island.
+   I first audited all seven maps according to their mapping unit, spatial extent, source, and republication conditions. I then applied one selection question to each map: Does this map change what a reader believes about potential outdoor heat exposure in New York City?
     </p>
     <p>
-    I then ran the following power query: "[out:json][timeout:60];(nwr["power"="substation"]({{bbox}}); nwr["power"="tower"]({{bbox}}););out center;" 
-    This query contained two predicates: ["power"="substation"] selected mapped substations, while ["power"="tower"] selected electricity transmission towers. The parentheses combined the two results. The extent was again the visible New York City metropolitan bounding box. Both queries were answered by https://overpass-api.de/api/ on 3 November 2026.
+   I retained the climate, terrain, vegetation, and land-cover maps. I excluded the watershed map because it primarily explains drainage connectivity, the trade map because it operates at a global country scale, and the infrastructure map because it represents telecommunications rather than environmental exposure. 
+   These excluded maps remain in the journal as part of the working record, even though they do not belong in this particular argument.
     </p>
     <p>
     My telecom query returned 49 mapped objects, so telecommunications infrastructure was not entirely absent from OpenStreetMap. However, these results were OSM objects carrying a telecom tag, not 49 identified submarine-cable landing stations. 
