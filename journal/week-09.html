@@ -121,35 +121,23 @@
 
     <h2>What I found</h2>
     <p>
-    Expectation: 
-    Two of my four predictions disagreed with the evidence. I correctly predicted that I could place a screenshot of TeleGeography’s Submarine Cable Map on my public journal page, although I had not anticipated that this permission applied only to a credited screenshot under CC BY-SA 4.0—not to embedding the interactive map or redistributing its underlying database. 
-    I also correctly predicted that I could publish an OpenStreetMap-derived map, provided that I credit OpenStreetMap and its contributors and identify the ODbL licence.
-    </p>
-   <p>
-    The results: Both of my numerical predictions were too high. I predicted that OpenStreetMap would contain 100 data centres in Shanghai, but the queries found four relevant records: two tagged telecom=data_center and two tagged building=data_center. I also predicted 1,000 cable landing stations worldwide, whereas Taginfo reported 60 objects tagged telecom=cable_landing_station when I checked it. 
-    
-    <p>
-    Main findings: My OpenStreetMap telecom query displayed 49 telecom-tagged objects, while adding building=data_center increased the displayed result to 51, meaning that two additional data-centre buildings were captured by that predicate. In contrast, the commercial Data Center Map lists 55 data centres in New York City, showing that the choice of dataset and classification method largely affects the  amount of infrastructure indentified in the map. 
-    The power query returned 2,008 mapped substations and transmission towers, indicating a dense network across the New York City metropolitan extent. TeleGeography also identifies submarine-cable connections and the nearby Island Park and Northport landing points, although these two landing points are outside New York City adminstrative boundary. 
+   Viewed together, these maps show that potential outdoor heat exposure becomes more spatially specific as the mapping unit changes from a single weather station to 1 m terrain cells, 30 m multispectral imagery, and 10 m land-cover classes. The climate record indicates broader thermal conditions, while the terrain, vegetation, and land-cover maps reveal local physical conditions that may increase or reduce exposure during walking.
     </p> 
 
-       
-    <p>
-    The two absences, distinguished: My telecom query returned 49 OpenStreetMap objects. Of these, 48 had a name and only one telecom=data_center object was unnamed. The entries were primarily classified as telecom=data_center or telecom=exchange. Named examples included Equinix NY3, CoreSite NY3, Digital Realty New Jersey EWR20, Telehouse Teleport, AT&T, Comcast, Optimum, Spectrum and several Verizon exchanges. 
-    The detailed facility and operator names show that contributors often knew more than the general feature type; in many cases, they could identify the operator, address or individual data-centre facility. However, the unnamed data-centre entry shows that at least one contributor could identify the building’s function without knowing or recording its specific name or operator.
-    </p>
-    <p>
-    None of the 49 entries was explicitly tagged telecom=cable_landing_station. This absence does not prove that nearby cable landing facilities do not exist. TeleGeography identifies Island Park and Northport as cable landing locations. I can therefore conclude only that these facilities were absent from, differently tagged in, or outside the extent of my OpenStreetMap telecom results—not that the physical infrastructure itself is absent.
-    </p>
-    <p>
+
+   <p>
+   The sequence also shows that the visible pattern depends on resolution, boundary, and classification. For example, the Paulson Center underwent substantial physical redevelopment but remains classified as Built Area in both 2017 and 2025. A physical change can therefore remain invisible when it does not produce a change between the dataset’s predefined land-cover classes. 
+   No individual map captures both atmospheric heat and the local protection available to pedestrians, but their sequence reveals why a citywide weather observation alone cannot represent outdoor walking conditions. 
+   </p>     
     
-    </p>
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-      I am using OSM-mapped substations and transmission towers to stand for the electricity network that a data centre in New York City might connect to, and it might fail because OpenStreetMap is built and maintained by a global community of contributors whose knowledge, access and mapping priorities might vary substantially. As a result, visible features such as overhead towers may be recorded more completely than underground cables or restricted facilities. Overhead towers are relatively easy to identify, while underground cables, restricted facilities and privately operated infrastructure may be missing. 
-      The map therefore does not suggest which grid or substation would actually supply a particular data centre. Similarly, the 55 Data Centers captured by Data Center Map do not reveal what is inside each facility, its electricity demand, its ownership, or whose data it stores. None of these results was verified through fieldwork, and the database counts may change over time.
-      </p>
+     The maps do not directly measure pedestrian thermal comfort, route-level shade, or air temperature around individual subway entrances. 
+     The vegetation map uses 30 m Landsat cells and cannot identify individual tree canopies, while the land-cover map classifies 10 m cells without representing building height, street geometry, or time-specific building shade.
+    </p>
+     <p>
+     What is missing is an integrated map combining station-specific heat conditions, tree canopy and building shade within subway walking catchments, and station-level ridership. Without that map and corresponding statistical analysis, this StoryMap cannot determine whether outdoor walking heat exposure is associated with subway ridership.
     </div>
 
     <a class="back" href="../index.html#journal">← Back to all entries</a>
