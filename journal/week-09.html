@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 08 · Beichen Li</title>
+<title>Week 09 · Beichen Li</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -27,7 +27,7 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 08 · November 2026</p>
+    <p class="kicker">Week 09 · November 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
@@ -42,34 +42,30 @@
 
     <h2>The question</h2>
     <p>
-   I wanted to understand the digital infrastructure surrounding my New York City site: what digital and telecommunications infrastructure is nearby, which wider network the site might connect to, and whose jurisdiction governs the flows entering and leaving it?
+    Potential outdoor heat exposure in New York City varies with mapping scale, spatial unit, and resolution：How does the pattern and distribution of potential heat exposure change as the mapping unit shifts from a weather station to terrain cells, multispectral imagery, and classified land cover？
     </p>
 
     <h2>The data</h2>
     <p>
-   I used four sources, all accessed on 3 November 2026.
+    The following audit covers all seven maps and mapped products created between Weeks 2 and 8. It records the unit used by each map, whether the material can be republished, whether I traced it to its origin, and whether it contributes directly to the StoryMap’s claim.
     </p>
     <p>
-   First, I accessed OpenStreetMap data through Overpass Turbo. The data was made by OpenStreetMap contributors and is licensed under the Open Database License (ODbL) 1.0. 
-   It could be republished on a public webpage provided that OpenStreetMap and its contributors are credited, the ODbL is identified, and any publicly distributed derivative database follows the share-alike requirement.
+   Week 2 — Climate. One monitoring point: Central Park weather station, identified by GHCN-D station ID USW00094728. The station stands in for broader climate conditions across New York City. The observations were traced to NOAA’s GHCN-D archive and NOAA-produced data are generally in the U.S. public domain, with attribution retained.
    </p>
    <p>
-   Second, I used Taginfo, OpenStreetMap’s tag-statistics service, to examine worldwide tag counts. Taginfo’s data is also licensed under the ODbL and could be publicly republished with the required OpenStreetMap attribution and licence notice. 
+   Week 3 — Terrain. USGS CoNED topobathymetric elevation represented by 1 m raster cells across the displayed New York City extent. The cell size determines which small variations in the physical surface remain visible. The data were traced to the USGS CoNED program and USGS-produced data are generally in the U.S. public domain.
    </p>
    <p> 
-   Third, I consulted TeleGeography’s Submarine Cable Map, made by TeleGeography, to identify the Island Park and Northport cable landing points. References and screenshots of the map are available under CC BY-SA 4.0 when TeleGeography is credited, 
-   but the interactive map cannot be embedded and its underlying database is restricted to paying subscribers. I therefore manually transcribed and cited two publicly displayed coordinate pairs through Submarine Networks website rather than downloading or redistributing the database.
+   Week 4 — Vegetation. Landsat multispectral imagery represented by 30 m raster cells, with Washington Square Park defining the study area. The Agriculture rendering uses spectral reflectance, with brighter green indicating more vigorous vegetation. The imagery was traced to USGS and NASA Landsat data hosted through AWS and served through Esri Living Atlas. Use is governed by the Esri Master License Agreement.
    </p> 
    <p>
-   Finally, I referred to Data Center Map, made by Data Center Map ApS, to compare commercial data-centre listings near New York City. Its website terms do not provide a clear open-data licence or clear permission to reproduce its listings publicly. 
-   Therefore, the terms were unclear, so I linked to the source rather than reproducing its content.
+   Week 5 — Watershed. A delineated catchment derived from MERIT Hydro and an explicitly placed pour point. The higher-precision delineation produced an approximately 2 km² catchment, with an outlet near 40.741, −74.008. The data were traced to MERIT Hydro. MERIT Hydro is available under CC BY-NC 4.0 or ODbL 1.0; derived database products may carry additional share-alike requirements.
    </p> 
     <p>
-    Republication:  
+   Week 6 — Land cover. Esri and Impact Observatory Sentinel-2 land cover represented by 10 m raster cells within the extent displayed on screen around Washington Square Park and NYU’s Paulson Center. Each cell is assigned to a fixed land-cover class. The product was traced to the Sentinel-2 10m Land Use/Land Cover Time Series and is available under CC BY 4.0.
     </p> 
     <p>
-    OpenStreetMap: The data is available under the Open Database License. I am “free to copy, distribute, transmit and adapt” it as long as I credit OpenStreetMap and its contributors. I may publish my map publicly with visible attribution and an ODbL link; any distributed derivative database must follow the share-alike requirement.
-    </p> 
+   Week 7 — Table to map. Natural Earth country polygons used as the target layer and country names used as the join key. Seven polygons lacked matching trade rows: Western Sahara, United States of America, Puerto Rico, Antarctica, Northern Cyprus, Somaliland, and Kosovo. Every row in the trade table matched a Natural Earth polygon. Natural Earth boundaries are in the public domain. The origin and republication conditions of the trade table should be stated using the source and licence recorded in Week 7: [insert trade-table source and licence].
     <p> 
     Overpass Turbo: Overpass returned OpenStreetMap data rather than a separately licensed infrastructure database. The exported response states that the included data is from OpenStreetMap and “is made available under ODbL.” I could republish the resulting map with the required OpenStreetMap attribution.
     </p> 
